@@ -1,0 +1,6 @@
+{
+  "guest.fmd@fao.org" : {
+    "name" : "Guest",
+    "password" : "guest"
+  }
+}

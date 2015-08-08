@@ -40,8 +40,8 @@ require([
 
         'json/contact',
 
-        //'text!submodules/fenix-ui-common/html/pills.html',
-        'text!pills.html',
+        'text!submodules/fenix-ui-common/html/pills.html',
+        //'text!pills.html',
 
         'config/services',
         'i18n!nls/questions',
@@ -65,7 +65,9 @@ require([
         var authMenu = renderAuthMenu('compile'),
             user = authMenu.auth.getCurrentUser();
 
-        var tmplFormError = Handlebars.compile('<div class="alert alert-warning">Question {{id}} not found</div>'),
+
+
+        var tmplFormError = Handlesbars.compile('<div class="alert alert-warning">Question {{id}} not found</div>'),
             formStore = new storeForm({
                 prefix: user.name || 'unlogged',
                 storeExpires: 100000,

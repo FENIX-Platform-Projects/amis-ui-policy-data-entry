@@ -24,7 +24,6 @@ define(['jquery','underscore','handlebars','amplify',
     };
 
     storeForm.prototype.addSection = function(id, data) {
-
         this.storeObj[ id ]= data;
 
         this.storeSections();

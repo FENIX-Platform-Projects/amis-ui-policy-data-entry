@@ -1,11 +1,28 @@
 define(function () {
 
     var config = {
-       // "baseUrl": "",
 
         paths: {
 
+            'AP_DATAENTRY_THEME' : './ap_dataEntry_theme',
+            //'sweetAlert': 'https://cdnjs.cloudflare.com/ajax/libs/sweetalert/0.5.0/sweet-alert.min',
+            'sweetAlert':'//fenixrepo.fao.org/cdn/js/sweet-alert/0.5.0/sweet-alert.min',
+
             'ap-dataEntry/start': './start',
+            'ap-dataEntry/dataEntryVariables': './dataEntryVariables',
+
+            'ap-dataEntry': '..',
+            'submodules': '../..',
+            'js': './',
+            'config': '../config',
+            'nls': '../nls',
+            'html': '../html',
+            'ap-dataEntry/json': '../json',
+            'ap-dataEntry/schemaUtils': './schemaUtils',
+            'ap-dataEntry/customSelector': './customSelector',
+
+            //'fx-editor/start': './start',
+            //'fx-editor/templates': "../templates",
 
             //'fx-filter/filtercontroller': 'src/js/Fx-filter-controller',
             //'fx-filter/fluidgrid': 'src/js/Fx-fluid-grid',
@@ -38,24 +55,41 @@ define(function () {
             //'jstree': '{FENIX_CDN}/js/jstree/3.0.8/dist/jstree.min',
             //'amplify' : '{FENIX_CDN}/js/amplify/1.1.2/amplify.min',
 
-            'pnotify': '//fenixapps.fao.org/repository/js/pnotify/2.0.1/pnotify.core',
-            'jqwidgets': '//fenixapps.fao.org/repository/js/jqwidgets/3.1/jqx-light',
+            'pnotify': '//fenixrepo.fao.org/cdn/js/pnotify/2.0.1/pnotify.core',
+            'jqwidgets': '//fenixrepo.fao.org/cdn/js/jqwidgets/3.1/jqx-light',
             //'jqueryui': 'src/lib/jquery-ui.min',
-            'jqueryuicustom': '//fenixapps.fao.org/repository/js/jquery-ui/1.10.3/jquery-ui-1.10.3.custom.min',
-            'nprogress': '//fenixapps.fao.org/repository/js/nprogress/0.1.6/nprogress',
-            'isotope': "//fenixapps.fao.org/repository/js/isotope/2.1.0/dist/isotope.pkgd.min",
-            'packery': '//fenixapps.fao.org/repository/js/packery/dist/packery.pkgd.min',
-            'jstree': '//fenixapps.fao.org/repository/js/jstree/3.0.8/dist/jstree.min',
+            'jqueryui': '//fenixrepo.fao.org/cdn/js/jquery-ui/1.9.2/jquery-ui.custom.min',
+            //'jqueryuicustom': '//fenixrepo.fao.org/cdn/js/jquery-ui/1.10.3/jquery-ui-1.10.3.custom.min',
+            'nprogress': '//fenixrepo.fao.org/cdn/js/nprogress/0.1.6/nprogress',
+            'isotope': "//fenixrepo.fao.org/cdn/js/isotope/2.1.0/dist/isotope.pkgd.min",
+            'packery': '//fenixrepo.fao.org/cdn/js/packery/dist/packery.pkgd.min',
+            'jstree': '//fenixrepo.fao.org/cdn/js/jstree/3.0.8/dist/jstree.min',
+
+
+            //'pnotify': '//fenixapps.fao.org/repository/js/pnotify/2.0.1/pnotify.core',
+            //'jqwidgets': '//fenixapps.fao.org/repository/js/jqwidgets/3.1/jqx-light',
+            ////'jqueryui': 'src/lib/jquery-ui.min',
+            //'jqueryui': '//fenixrepo.fao.org/cdn/js/jquery-ui/1.9.2/jquery-ui.custom.min',
+            ////'jqueryuicustom': '//fenixapps.fao.org/repository/js/jquery-ui/1.10.3/jquery-ui-1.10.3.custom.min',
+            //'nprogress': '//fenixapps.fao.org/repository/js/nprogress/0.1.6/nprogress',
+            //'isotope': "//fenixapps.fao.org/repository/js/isotope/2.1.0/dist/isotope.pkgd.min",
+            //'packery': '//fenixapps.fao.org/repository/js/packery/dist/packery.pkgd.min',
+            //'jstree': '//fenixapps.fao.org/repository/js/jstree/3.0.8/dist/jstree.min',
 
             'text':      "//fenixrepo.fao.org/cdn/js/requirejs/plugins/text/2.0.12/text",
             'i18n':      "//fenixrepo.fao.org/cdn/js/requirejs/plugins/i18n/2.0.4/i18n",
             'domready':  "//fenixrepo.fao.org/cdn/js/requirejs/plugins/domready/2.0.1/domReady",
             'jquery':    "//fenixrepo.fao.org/cdn/js/jquery/2.1.1/jquery.min",
-            'bootstrap': "//fenixrepo.fao.org/cdn/js/bootstrap/3.3.2/js/bootstrap.min",
+            'bootstrap': "//fenixrepo.fao.org/cdn/js/bootstrap/3.3.4/js/bootstrap.min",
+            //'bootstrap': "//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js",
             'amplify':   "//fenixrepo.fao.org/cdn/js/amplify/1.1.2/amplify.min",
             'handlebars':"//fenixrepo.fao.org/cdn/js/handlebars/2.0.0/handlebars",
             'underscore':"//fenixrepo.fao.org/cdn/js/underscore/1.8.0/underscore.min",
-            'jsoneditor':"//fenixrepo.fao.org/cdn/js/json-editor/0.7.17/jsoneditor.min"
+            'jsoneditor':"//fenixrepo.fao.org/cdn/js/json-editor/0.7.21/jsoneditor.min",
+            'moment': "//cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment-with-locales",
+            'bootstrap-datetimepicker': "//cdn.rawgit.com/Eonasdan/bootstrap-datetimepicker/a549aa8780dbda16f6cff545aeabc3d71073911e/src/js/bootstrap-datetimepicker"
+            //'bootstrap-datetimepicker': "//tarruda.github.com/bootstrap-datetimepicker/assets/js/bootstrap-datetimepicker.min",
+            //'bootstrap-datetimepickerBR': "//tarruda.github.com/bootstrap-datetimepicker/assets/js/bootstrap-datetimepicker.pt-BR"
         },
 
         shim: {
@@ -78,9 +112,12 @@ define(function () {
             pnotify: {
                 deps: ['bootstrap']
             },
-            jsoneditor: {
+            'jsoneditor': {
                 deps: ['jquery', 'bootstrap'],
                 exports: 'JSONEditor'
+            },
+            'bootstrap-datetimepicker': {
+                deps: ['jquery', 'bootstrap', 'moment']
             }
         }
     };

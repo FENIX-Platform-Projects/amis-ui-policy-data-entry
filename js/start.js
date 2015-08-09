@@ -1,5 +1,4 @@
 /*global define */
-
 define([
     'jquery',
     'text!ap-dataEntry/index.html',
@@ -40,12 +39,6 @@ define([
         $.extend(true, o, options);
         $("#metadataEditorContainer").html(DataEntryTemplate);
 
-        /* Apply FAOSTAT theme for json-editor. */
-        //JSONEditor.defaults.themes.ap_dataEntry_theme = JSONEditor.AbstractTheme.extend(AP_DATAENTRY_THEME);
-
-        /* Extend string editor. */
-        //JSONEditor.defaults.editors.string = JSONEditor.defaults.editors.string.extend(this.custom_string_editor);
-
         var authMenu =  renderAuthMenu('compile'),
 
         //TO REMOVE START
@@ -63,13 +56,14 @@ define([
             autosaveLoader: '#sectionstorage-loader'
         });
         id = "searchEditPolicy";
-        //id = "cat1";
         if((options!=null)&&(typeof options!= "undefined")&&(options.fileName!=null)&&(typeof options.fileName!= "undefined")){
             require(['ap-dataEntry/json/'+ options.fileName ], function(schema) {
 
                 var schemaUtils = new SchemaUtils();
                 schemaUtils.init();
                 schemaUtils.settingProperties(schema, options);
+
+                console.log(schema)
                 renderFormCustomFeature('#'+ id, {
                     schema: schema,
                     iconlib: 'fontawesome4'
@@ -77,7 +71,6 @@ define([
 
                 var disabled_fields = self.disabledOpenListFields(schema, dataEntryVariables, null);
                 disabled_fields = self.disabledFields(schema, dataEntryVariables, disabled_fields);
-                //var disabled_fields = [];
                 console.log("schema!!")
                 console.log(schema)
                 self.render = new renderForm('#'+ id, {
@@ -154,7 +147,6 @@ define([
     };
 
     Start.prototype.disableNameInOpenList = function (field, dataEntryVariables) {
-
         if((field!=null)&&(typeof field!="undefined")){
             var value = field.getValue().list;
             if((value!=null)&&(typeof value !="undefined")){
@@ -213,4 +205,3 @@ define([
 
     return Start;
 });
-

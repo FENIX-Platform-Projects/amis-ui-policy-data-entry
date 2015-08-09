@@ -50,41 +50,11 @@ define(['sweetAlert'], function(swal) {
             },
 
             getDateInput: function () {
-                //<div class="input-group">
-                //<input id="date-picker-2" type="text" class="date-picker form-control" />
-                //<label for="date-picker-2" class="input-group-addon btn"><span class="glyphicon glyphicon-calendar"></span>
-                //
-                //</label>
-                //</div>
-                //var el = document.createElement('div');
-                ////el.innerHTML = '<input id="date-picker-2" type="text" class="date-picker form-control" /> <label for="date-picker-2" class="input-group-addon btn"><i class="fa fa-calendar"></i>';
-                //el.innerHTML = '';
-                //el.className = "input-group";
-
                 var el = document.createElement('div');
                 el.innerHTML = "<input type='text' class='form-control' /><span class='input-group-addon'><i class='fa fa-calendar'></i></span>";
                 el.className = "input-group date";
                 el.id = "datetimepicker1";
                 return el;
-
-                //<div class='input-group date'>
-                //<input type='text' class='form-control' />
-                //<span class='input-group-addon'>
-                //<span class='glyphicon glyphicon-calendar'></span>
-                //</span>
-                //</div>
-
-                //var el = document.createElement('div');
-                //el.innerHTML = '<input type="text"/><span class="add-on"><i data-time-icon="icon-time" data-date-icon="icon-calendar"></i></span>';
-                //el.className = "input-append date";
-                //return el;
-
-                //<div id="datetimepicker" class="input-append date">
-                //<input type="text"></input>
-                //<span class="add-on">
-                //<i data-time-icon="icon-time" data-date-icon="icon-calendar"></i>
-                //</span>
-                //</div>
             },
 
             getRangeInput: function (min, max, step) {
@@ -102,9 +72,6 @@ define(['sweetAlert'], function(swal) {
             getFormControl: function (label, input, description) {
 
                 if (label.innerHTML == 'Resource identification code') {
-                    //console.log(label.innerHTML);
-                    //console.log(input);
-                    //console.log(description.innerHTML);
                 }
 
                 var group = document.createElement('div');
@@ -158,7 +125,6 @@ define(['sweetAlert'], function(swal) {
                         showCancelButton: true,
                         showConfirmButton: false
                     });
-                   // swal(description.innerHTML);
                 };
                 return icon;
             },

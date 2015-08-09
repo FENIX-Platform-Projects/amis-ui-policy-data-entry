@@ -8,8 +8,6 @@ define([
     };
 
     function SchemaUtils(o) {
-        //$.extend(true, o, options);
-
         if (this.options === undefined) {
             this.options = {};
         }
@@ -58,16 +56,58 @@ define([
                 this.otherFieldsSetting_edit(schema, options);
                 this.listSetting_edit(schema, options);
             }
+            else  if(options.fileName =="searchAddPolicy"){
+                //Case Add Policy
+                if((options.properties.summary!=null)&&(typeof options.properties.summary!="undefined")&&(options.properties.summary.properties!=null)&&(typeof options.properties.summary.properties!="undefined")){
+                    //Summary
+                    if((options.properties.summary.properties.country!=null)&&(typeof options.properties.summary.properties.country!="undefined")){
+                        schema.properties.summary.properties.country.default = options.properties.summary.properties.country.value.default;
+                    }
+                    if((options.properties.summary.properties.subnational!=null)&&(typeof options.properties.summary.properties.subnational!="undefined")){
+                        schema.properties.summary.properties.subnational.default = options.properties.summary.properties.subnational.value.default;
+                    }
+                    if((options.properties.summary.properties.commodityDomain!=null)&&(typeof options.properties.summary.properties.commodityDomain!="undefined")){
+                        schema.properties.summary.properties.commodityDomain.default = options.properties.summary.properties.commodityDomain.value.default;
+                    }
+                    if((options.properties.summary.properties.commodityClass!=null)&&(typeof options.properties.summary.properties.commodityClass!="undefined")){
+                        schema.properties.summary.properties.commodityClass.default = options.properties.summary.properties.commodityClass.value.default;
+                    }
+                    if((options.properties.summary.properties.commodityId!=null)&&(typeof options.properties.summary.properties.commodityId!="undefined")){
+                        schema.properties.summary.properties.commodityId.default = options.properties.summary.properties.commodityId.value.default;
+                    }
+                    if((options.properties.summary.properties.hsCode!=null)&&(typeof options.properties.summary.properties.hsCode!="undefined")){
+                        schema.properties.summary.properties.hsCode.default = options.properties.summary.properties.hsCode.value.default;
+                    }
+                    if((options.properties.summary.properties.hsVersion!=null)&&(typeof options.properties.summary.properties.hsVersion!="undefined")){
+                        schema.properties.summary.properties.hsVersion.default = options.properties.summary.properties.hsVersion.value.default;
+                    }
+                    if((options.properties.summary.properties.hsSuffix!=null)&&(typeof options.properties.summary.properties.hsSuffix!="undefined")){
+                        schema.properties.summary.properties.hsSuffix.default = options.properties.summary.properties.hsSuffix.value.default;
+                    }
+                    if((options.properties.summary.properties.shortDescription!=null)&&(typeof options.properties.summary.properties.shortDescription!="undefined")){
+                        schema.properties.summary.properties.shortDescription.default = options.properties.summary.properties.shortDescription.value.default;
+                    }
+                    if((options.properties.summary.properties.longDescription!=null)&&(typeof options.properties.summary.properties.longDescription!="undefined")){
+                        schema.properties.summary.properties.longDescription.default = options.properties.summary.properties.longDescription.value.default;
+                    }
+                    if((options.properties.summary.properties.policyDomain!=null)&&(typeof options.properties.summary.properties.policyDomain!="undefined")){
+                        schema.properties.summary.properties.policyDomain.default = options.properties.summary.properties.policyDomain.value.default;
+                    }
+                    if((options.properties.summary.properties.policyType!=null)&&(typeof options.properties.summary.properties.policyType!="undefined")){
+                        schema.properties.summary.properties.policyType.default = options.properties.summary.properties.policyType.value.default;
+                    }
+                    if((options.properties.summary.properties.policyMeasure!=null)&&(typeof options.properties.summary.properties.policyMeasure!="undefined")){
+                        schema.properties.summary.properties.policyMeasure.default = options.properties.summary.properties.policyMeasure.value.default;
+                    }
+                    if((options.properties.summary.properties.policyCondition!=null)&&(typeof options.properties.summary.properties.policyCondition!="undefined")){
+                        schema.properties.summary.properties.policyCondition.default = options.properties.summary.properties.policyCondition.value.default;
+                    }
+                    if((options.properties.summary.properties.individualPolicy!=null)&&(typeof options.properties.summary.properties.individualPolicy!="undefined")){
+                        schema.properties.summary.properties.individualPolicy.default = options.properties.summary.properties.individualPolicy.value.default;
+                    }
+                }
+            }
         }
-
-        //.default
-        //
-        //
-        //if((guiJson.panels[0].properties.summary.properties.country)&&(typeof guiJson.panels[0].properties.summary.properties.country)){
-        //    guiJson.panels[0].properties.summary.properties.country.value = {};
-        //    //guiJson.panels[0].properties.summary.properties.country.value.default = "Argentina";
-        //    guiJson.panels[0].properties.summary.properties.country.value.default = masterdata.CountryName;
-        //}
     };
 
     SchemaUtils.prototype.otherFieldsSetting_edit = function (schema, options) {
@@ -121,13 +161,8 @@ define([
         }
 
         if ((options.properties.policyElement != null) && (typeof options.properties.policyElement != "undefined")) {
-            //if ((options.properties.policyElement.value!=null)&&(typeof options.properties.policyElement.value!="undefined")&&(options.properties.policyElement.value.default!= null)&&(typeof options.properties.policyElement.value.default!="undefined")) {
-            //    schema.properties.policyElement.default = options.properties.policyElement.value.default;
-            //}
             if ((options.properties.policyElement.source!=null)&&(typeof options.properties.policyElement.source!="undefined")&&(options.properties.policyElement.source.datafields!=null)&&(typeof options.properties.policyElement.source.datafields!="undefined")&&(options.properties.policyElement.source.datafields.defaultCode!= null)&&(typeof options.properties.policyElement.source.datafields.defaultCode!="undefined")) {
                 schema.properties.policyElement.properties.list.default = options.properties.policyElement.source.datafields.defaultCode;
-                //var field = self.render.editor.getEditor('root.policyElement');
-                //field.editors.name.disable();
             }
         }
         else {
@@ -152,20 +187,13 @@ define([
             }
 
             if ((options.properties.unit != null) && (typeof options.properties.unit != "undefined")) {
-                //if ((options.properties.unit.value!=null)&&(typeof options.properties.unit.value!="undefined")&&(options.properties.unit.value.default!= null)&&(typeof options.properties.unit.value.default!="undefined")) {
-                //    schema.properties.unit.default = options.properties.unit.value.default;
-                //}
-
                 if ((options.properties.unit.source!=null)&&(typeof options.properties.unit.source!="undefined")&&(options.properties.unit.source.datafields!=null)&&(typeof options.properties.unit.source.datafields!="undefined")&&(options.properties.unit.source.datafields.defaultCode!= null)&&(typeof options.properties.unit.source.datafields.defaultCode!="undefined")) {
                     schema.properties.unit.properties.list.default = options.properties.unit.source.datafields.defaultCode;
-                    //var field = self.render.editor.getEditor('root.unit');
-                    //field.editors.name.disable();
                 }
             }
             else {
                 delete schema.properties.unit;
             }
-            //delete schema.properties.unit;
 
             if ((options.properties.value != null) && (typeof options.properties.value != "undefined")) {
                 if ((options.properties.value.value!=null)&&(typeof options.properties.value.value!="undefined")&&(options.properties.value.value.default!= null)&&(typeof options.properties.value.value.default!="undefined")) {
@@ -176,7 +204,6 @@ define([
                 daleteValueValueText++;
                 delete schema.properties.value;
             }
-            //delete schema.properties.value;
 
             if ((options.properties.valueText != null) && (typeof options.properties.valueText != "undefined")) {
                 if ((options.properties.valueText.value!=null)&&(typeof options.properties.valueText.value!="undefined")&&(options.properties.valueText.value.default!= null)&&(typeof options.properties.valueText.value.default!="undefined")) {
@@ -187,17 +214,15 @@ define([
                 daleteValueValueText++;
                 delete schema.properties.valueText;
             }
-            //delete schema.properties.valueText;
 
             if(daleteValueValueText==2){
+                //If there aren't Value and Value Text.... this field has to be deleted
                 delete schema.properties.valueValueText;
             }
 
             if ((options.properties.source != null) && (typeof options.properties.source != "undefined")) {//OK
                 if ((options.properties.source.source!=null)&&(typeof options.properties.source.source!="undefined")&&(options.properties.source.source.datafields!=null)&&(typeof options.properties.source.source.datafields!="undefined")&&(options.properties.source.source.datafields.defaultCode!= null)&&(typeof options.properties.source.source.datafields.defaultCode!="undefined")) {
                     schema.properties.source.properties.list.default = options.properties.source.source.datafields.defaultCode;
-                    //var field = self.render.editor.getEditor('root.source');
-                    //field.editors.name.disable();
                 }
             }
             else {
@@ -250,14 +275,8 @@ define([
             }
 
             if ((options.properties.secondGenerationSpecific != null) && (typeof options.properties.secondGenerationSpecific != "undefined")) {
-                //if ((options.properties.secondGenerationSpecific.value!=null)&&(typeof options.properties.secondGenerationSpecific.value!="undefined")&&(options.properties.secondGenerationSpecific.value.default!= null)&&(typeof options.properties.secondGenerationSpecific.value.default!="undefined")) {
-                //    schema.properties.secondGenerationSpecific.default = options.properties.secondGenerationSpecific.value.default;
-                //}
-
                 if ((options.properties.secondGenerationSpecific.source!=null)&&(typeof options.properties.secondGenerationSpecific.source!="undefined")&&(options.properties.secondGenerationSpecific.source.datafields!=null)&&(typeof options.properties.secondGenerationSpecific.source.datafields!="undefined")&&(options.properties.secondGenerationSpecific.source.datafields.defaultCode!= null)&&(typeof options.properties.secondGenerationSpecific.source.datafields.defaultCode!="undefined")) {
                     schema.properties.secondGenerationSpecific.properties.list.default = options.properties.secondGenerationSpecific.source.datafields.defaultCode;
-                    //var field = self.render.editor.getEditor('root.secondGenerationSpecific');
-                    //field.editors.name.disable();
                 }
             }
             else {
@@ -274,13 +293,8 @@ define([
             }
 
             if ((options.properties.localCondition != null) && (typeof options.properties.localCondition != "undefined")) {//OK
-                //if ((options.properties.localCondition.source.datafields!=null)&&(typeof options.properties.localCondition.source.datafields!="undefined")&&(options.properties.localCondition.source.datafields.defaultCode!= null)&&(typeof options.properties.localCondition.source.datafields.defaultCode!="undefined")) {
-                //    schema.properties.localCondition.default = options.properties.localCondition.source.datafields.defaultCode;
-                //}
                 if ((options.properties.localCondition.source!=null)&&(typeof options.properties.localCondition.source!="undefined")&&(options.properties.localCondition.source.datafields!=null)&&(typeof options.properties.localCondition.source.datafields!="undefined")&&(options.properties.localCondition.source.datafields.defaultCode!= null)&&(typeof options.properties.localCondition.source.datafields.defaultCode!="undefined")) {
                     schema.properties.localCondition.properties.list.default = options.properties.localCondition.source.datafields.defaultCode;
-                    //var field = self.render.editor.getEditor('root.localCondition');
-                    //field.editors.name.disable();
                 }
             }
             else {
@@ -370,41 +384,10 @@ define([
         }
     }
 
-    //source: {
-    //    type: "object",
-    //        title: DataEntry['source'],
-    //        "options": {
-    //        disable_collapse: true
-    //    },
-    //    properties: {
-    //        sourceList: {
-    //            type: "string",
-    //                format: "select",
-    //                title: "List",
-    //                description:  DataEntry['sourceDescription'],
-    //                uniqueItems: true,
-    //        enum: [
-    //                "Other",
-    //                "Yes, officially",
-    //                "Yes, not officially",
-    //                "No",
-    //                "Not sure"
-    //            ],
-    //        default: ""
-    //        },
-    //        sourceName: {
-    //            type: "string",
-    //                title: "Additional Source Name",
-    //        default: ""
-    //        }
-    //    }
-    //},
-
     SchemaUtils.prototype.listSetting_edit = function (schema, options) {
         var self = this;
         var keys = Object.keys(options.properties);
         var chooseKeys = [];
-
         var counter = 0;
         var fields= [];
 
@@ -434,7 +417,6 @@ define([
                     //To order the json elements based on the title(label)
                     if ((json != null) && (typeof json != "undefined")) {
                         var jsonCodes = json.data;
-                        //var data = new Array();
                         if ((jsonCodes != null) && (typeof jsonCodes != "undefined") && (jsonCodes.length > 0)) {
                             jsonCodes.sort(function (a, b) {
                                 if (a.title.EN < b.title.EN)
@@ -474,5 +456,3 @@ define([
 
     return SchemaUtils;
 });
-
-

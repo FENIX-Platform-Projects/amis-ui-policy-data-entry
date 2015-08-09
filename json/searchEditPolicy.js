@@ -1,36 +1,5 @@
 define(['i18n!nls/dataEntry'], function(DataEntry) {
 
-    //return {
-    //    "type": "object",
-    //    "title": Quests['cat1'],
-    //    "properties": {
-    //        "ask1": {
-    //            "title": Quests['ask1'],
-    //            "type": "string",
-    //            "uniqueItems": true,
-    //            "format": "select",
-    //            "enum": [
-    //                "Yes, officially",
-    //                "Yes, not officially",
-    //                "No",
-    //                "Not sure"
-    //            ]
-    //        },
-    //        "ask1_1": {
-    //            "title": Quests['ask1_1'],
-    //            "type": "array",
-    //            "minItems": 1,
-    //            "maxItems": 5,
-    //            "items": {
-    //                "type": "string",
-    //                "title": " ",
-    //                "default": ""
-    //            },
-    //            "additionalItems":false
-    //        }
-    //    }
-
-
     return {
         title: "Policy Data Editor",
         type: "object",
@@ -107,12 +76,6 @@ define(['i18n!nls/dataEntry'], function(DataEntry) {
                 description:  DataEntry['linkPdfDescription'],
                 default: ""
             },
-            //policyElement: {
-            //    type: "string",
-            //    title: DataEntry['policyElement'],
-            //    description:  DataEntry['policyElementDescription'],
-            //    default: ""
-            //},
             policyElement: {
                 type: "object",
                 title: DataEntry['policyElement'],
@@ -157,12 +120,6 @@ define(['i18n!nls/dataEntry'], function(DataEntry) {
                 format: "date",
                 default: ""
             },
-            //unit: {
-            //    type: "string",
-            //    title: DataEntry['unit'],
-            //    description:  DataEntry['unitDescription'],
-            //    default: ""
-            //},
             valueValueText: {
                 type: "string",
                 format: "select",
@@ -197,7 +154,6 @@ define(['i18n!nls/dataEntry'], function(DataEntry) {
                         options: {
                             disabled: true
                         }
-                        //default: ""
                     }
                 }
             },
@@ -238,46 +194,9 @@ define(['i18n!nls/dataEntry'], function(DataEntry) {
                         },
                         type: "string",
                         title: DataEntry['sourceAdditionalName']
-                        //format: date
-                        //default: ""
                     }
                 }
             },
-            //source2: {
-            //    type: "object",
-            //    //format: "table",
-            //    title: DataEntry['source'],
-            //    "options": {
-            //        disable_collapse: true
-            //    },
-            //    properties: {
-            //        sourceList :{
-            //            type: "string",
-            //            title: DataEntry['source'],
-            //            description:  DataEntry['sourceDescription'],
-            //            //default: "",
-            //            uniqueItems: true,
-            //            format: "select",
-            //            enum: [
-            //                "Other",
-            //                "Yes, officially",
-            //                "Yes, not officially",
-            //                "No",
-            //                "Not sure"
-            //            ]
-            //            //"default": "Other"
-            //        },
-            //        sourceName: {
-            //            type: "string",
-            //            title: "Source Name"
-            //            //default: "Test Name"
-            //        }
-            //    },
-            //    default:[{
-            //        "sourceList":"Other",
-            //        "sourceName": ""
-            //    }]
-            //},
             exemptions: {
                 type: "string",
                 title: DataEntry['exemptions'],
@@ -309,12 +228,6 @@ define(['i18n!nls/dataEntry'], function(DataEntry) {
                 description:  DataEntry['benchmarkLinkPdfDescription'],
                 default: ""
             },
-            //secondGenerationSpecific: {
-            //    type: "string",
-            //    title: DataEntry['secondGenerationSpecific'],
-            //    description:  DataEntry['secondGenerationSpecificDescription'],
-            //    default: ""
-            //},
             secondGenerationSpecific: {
                 type: "object",
                 title: DataEntry['secondGenerationSpecific'],
@@ -350,12 +263,6 @@ define(['i18n!nls/dataEntry'], function(DataEntry) {
                 description:  DataEntry['notesDescription'],
                 default: ""
             },
-            //localCondition: {
-            //    type: "string",
-            //    title: DataEntry['localCondition'],
-            //    description:  DataEntry['localConditionDescription'],
-            //    default: ""
-            //},
             localCondition: {
                 type: "object",
                 title: DataEntry['localCondition'],
@@ -467,7 +374,7 @@ define(['i18n!nls/dataEntry'], function(DataEntry) {
             //"measureDescription"
             //"productOriginalHs"
             //"productOriginalName"
-        },
-        "required": ["link", "linkPdf"]
+        }
+       // "required": ["link", "linkPdf"]
     }
 });

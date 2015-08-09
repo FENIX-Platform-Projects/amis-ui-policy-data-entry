@@ -21,7 +21,6 @@ define([
     };
 
     function DataEntryVariables(o) {
-        //$.extend(true, o, options);
 
         if (this.options === undefined) {
             this.options = {};
@@ -31,9 +30,7 @@ define([
     }
 
     DataEntryVariables.prototype.settingProperties = function (schema, options) {
-
     };
-
 
     return DataEntryVariables;
 });

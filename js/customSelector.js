@@ -208,7 +208,9 @@ define([
                 //format: "L"
                 //$(".input-group").datetimepicker({format: "D-MM-YYYY", disabledTimeIntervals: [[moment({ h: 0 }), moment({ h: 23 })]]});
                 $(this.input).datetimepicker({format: "D-MM-YYYY", disabledTimeIntervals: [[moment({ h: 0 }), moment({ h: 23 })]]});
-
+                //$(this.input).on('dp.change', function(e) {
+                //    self.onChange(true);
+                //})
             }
 
             // Any special formatting that needs to happen after the input is added to the dom

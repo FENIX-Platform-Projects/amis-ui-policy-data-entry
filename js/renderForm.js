@@ -109,12 +109,9 @@ define([
 
         self.editor.watch('root.source',function() {
             // Do something
-            alert("SOURCE ELEMENT CHANGE!!!")
 
             var source = self.editor.getEditor('root.source');
             var value = source.getValue();
-            console.log("value")
-            console.log(value)
             if((value!=null)&&(typeof value !="undefined")){
                 if(value=="Other"){
                     self.editor.getEditor('root.link').enable();

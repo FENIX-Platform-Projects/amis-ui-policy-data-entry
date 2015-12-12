@@ -13,7 +13,7 @@ define([
 
         var customSelector = new CustomSelector();
         /* Extend string editor. */
-        JSONEditor.defaults.editors.string = JSONEditor.defaults.editors.string.extend(customSelector.custom_string_editor);
+        //JSONEditor.defaults.editors.string = JSONEditor.defaults.editors.string.extend(customSelector.custom_string_editor);
 
         return self;
     };

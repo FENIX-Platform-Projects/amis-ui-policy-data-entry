@@ -18,10 +18,10 @@ define({
         "policyElement": "Policy Element",
         "policyElementAdditionalName": "Policy Element Additional Name",
         "policyElementDescription": "Select the policy element that further characterizes the policy measure.",
-        "startDate": "Start Date",
-        "startDateDescription": "Select the date from which the policy measure enters into force, is extended or is modified, as determined in the legal document.",
+        "startDate": "Start Date [MANDATORY]",
+        "startDateDescription": "Enter the date (in DD-MM-YYY format) when the policy measure enters into force, is extended or is modified, as determined in the legal document.",
         "endDate": "End Date",
-        "endDateDescription": "Select the expiration date of the policy measure as determined in the legal document. The end date can be left empty if it is not specified in the legal document.",
+        "endDateDescription": "Enter the expiration date (in DD-MM-YYY format) of the policy measure as determined in the legal document. The end date can be left empty if it is not specified in the legal document.",
         "unit": "Unit",
         "unitAdditionalName": "Unit Additional Name",
         "unitDescription": "Select or enter the units as provided in the official source. This field has to be filled in if the policy measure has a numeric value. Leave this field empty if you are filling in the field Value_Text.",
@@ -34,8 +34,8 @@ define({
         "sourceDescription": "Select or enter the name of the agency hosting the information. For example: Ministry of Trade.",
         "exemptions": "Exemptions",
         "exemptionsDescription": "Specify which countries, firms or commodities are exempted from a particular policy measure. This field is empty when no exemptions are granted.",
-        "dateOfPublication": "Date Of Publication",
-        "dateOfPublicationDescription": "Select the date on which the measure was officially published, this date is not necessarily the same as the start date.",
+        "dateOfPublication": "Date Of Publication [MANDATORY]",
+        "dateOfPublicationDescription": "Enter the date (in DD-MM-YYY format) on which the measure was officially published. This date is not necessarily the same as the start date.",
         "taxRateBenchmark": "Tax Rate Benchmark",
         "taxRateBenchmarkDescription": "Enter the tax rate for the benchmark product.",
         "benchmarkLink": "Benchmark Link",
@@ -64,20 +64,14 @@ define({
         "startDateTaxDescription": "Select the date when the benchmark tax rates entered into force.",
         "measureDescription": "Measure Description",
         "measureDescriptionDescription": "Enter additional information on the policy measure as specified in the legal document.",
-        "productOriginalHs":"Product OriginalHs",
-        "productOriginalHsDescription": "Product Original Hs tooltip",
+        "productOriginalHs":"Product Original HS",
+        "productOriginalHsDescription": "Product Original HS tooltip",
         "productOriginalName": "Product Original Name",
         "productOriginalNameDescription": "Product Original Name tooltip",
         "valueOrValueText": "Value or Value Text",
         "valueOrValueTextDescription": "One of Value and Value Text can be inserted.",
         "value": "Value",
         "valueText": "valueText"
-
-
-
-
-
-
 
         //options.properties.exemptions
         //options.properties.taxRateBenchmark

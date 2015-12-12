@@ -13,6 +13,7 @@ define(function () {
             'ap-dataEntry': '..',
             'submodules': '../..',
             'js': './',
+            'calculated_values_algorithms': './calculated_values_algorithms',
             'config': '../config',
             'nls': '../nls',
             'html': '../html',
@@ -36,7 +37,8 @@ define(function () {
             'underscore':"//fenixrepo.fao.org/cdn/js/underscore/1.8.0/underscore.min",
             'jsoneditor':"//fenixrepo.fao.org/cdn/js/json-editor/0.7.21/jsoneditor.min",
             'moment': "//cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment-with-locales",
-            'bootstrap-datetimepicker': "//cdn.rawgit.com/Eonasdan/bootstrap-datetimepicker/a549aa8780dbda16f6cff545aeabc3d71073911e/src/js/bootstrap-datetimepicker"
+            'bootstrap-datetimepicker': "../libs/bootstrap-datetimepicker"
+            //'bootstrap-datetimepicker': "//cdn.rawgit.com/Eonasdan/bootstrap-datetimepicker/a549aa8780dbda16f6cff545aeabc3d71073911e/src/js/bootstrap-datetimepicker"
         },
 
         shim: {

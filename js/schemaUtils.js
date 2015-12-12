@@ -21,7 +21,6 @@ define([
 
     SchemaUtils.prototype.settingProperties = function (schema, options) {
         if((options!=null)&&(typeof options!="undefined")&&(options.properties!=null)&&(typeof options.properties!="undefined")&&(options.fileName!=null)&&(typeof options.fileName!="undefined")){
-
             if(options.fileName =="searchEditPolicy"){
                 //Case Edit Policy
                 if((options.properties.summary!=null)&&(typeof options.properties.summary!="undefined")&&(options.properties.summary.properties!=null)&&(typeof options.properties.summary.properties!="undefined")){
@@ -98,6 +97,11 @@ define([
                     }
                     if((options.properties.summary.properties.policyMeasure!=null)&&(typeof options.properties.summary.properties.policyMeasure!="undefined")){
                         schema.properties.summary.properties.policyMeasure.default = options.properties.summary.properties.policyMeasure.value.default;
+                        if((options.properties.summary.properties.policyMeasure.value.code!=null)&&(typeof options.properties.summary.properties.policyMeasure.value.code!="undefined")){
+                            if((options.properties.summary.properties.policyMeasure.value.code!=this.options.dataEntryVariables.options.codes.importTariffs)&&(options.properties.summary.properties.policyMeasure.value.code!=this.options.dataEntryVariables.options.codes.tariffQuotas)){
+                                delete schema.properties.summary.properties.hsSuffix;
+                            }
+                        }
                     }
                     if((options.properties.summary.properties.policyCondition!=null)&&(typeof options.properties.summary.properties.policyCondition!="undefined")){
                         schema.properties.summary.properties.policyCondition.default = options.properties.summary.properties.policyCondition.value.default;
@@ -106,6 +110,10 @@ define([
                         schema.properties.summary.properties.individualPolicy.default = options.properties.summary.properties.individualPolicy.value.default;
                     }
                 }
+
+                //Other fields
+                this.otherFieldsSetting_edit(schema, options);
+                this.listSetting_edit(schema, options);
             }
         }
     };
@@ -179,11 +187,11 @@ define([
         }
 
         if ((options.properties.endDate != null) && (typeof options.properties.endDate != "undefined")) {
-            if ((options.properties.endDate.value!=null)&&(typeof options.properties.endDate.value!="undefined")&&(options.properties.endDate.value.default!= null)&&(typeof options.properties.endDate.value.default!="undefined")) {
-                schema.properties.endDate.default = options.properties.endDate.value.default;
+            if ((options.properties.endDate.value!=null)&&(typeof options.properties.endDate.value!="undefined")&&(options.properties.endDate.value.defaultValue!= null)&&(typeof options.properties.endDate.value.defaultValue!="undefined")) {
+                schema.properties.endDate.default = options.properties.endDate.value.defaultValue;
             }
             else {
-                delete schema.properties.endDate;
+                //delete schema.properties.endDate;
             }
 
             if ((options.properties.unit != null) && (typeof options.properties.unit != "undefined")) {
@@ -194,20 +202,40 @@ define([
             else {
                 delete schema.properties.unit;
             }
+            alert("SchemaUtils before value or valueText")
+            console.log(schema.properties)
+            console.log(schema.properties.value)
+            console.log(schema.properties.valueText)
+            console.log(schema.properties.valueValueText)
+            console.log(this.options.dataEntryVariables)
+            console.log(this.options.dataEntryVariables.options)
+            console.log(this.options.dataEntryVariables.options.value)
 
             if ((options.properties.value != null) && (typeof options.properties.value != "undefined")) {
                 if ((options.properties.value.value!=null)&&(typeof options.properties.value.value!="undefined")&&(options.properties.value.value.default!= null)&&(typeof options.properties.value.value.default!="undefined")) {
                     schema.properties.value.default = options.properties.value.value.default;
+                    schema.properties.valueValueText.default = "Value";
                 }
             }
             else {
                 daleteValueValueText++;
                 delete schema.properties.value;
             }
-
+            alert("SchemaUtils before valueText 2")
             if ((options.properties.valueText != null) && (typeof options.properties.valueText != "undefined")) {
+                console.log("IF 1");
+                console.log(schema.properties);
+                console.log(schema.properties.valueValueText);
+                console.log(schema.properties.valueValueText.default);
                 if ((options.properties.valueText.value!=null)&&(typeof options.properties.valueText.value!="undefined")&&(options.properties.valueText.value.default!= null)&&(typeof options.properties.valueText.value.default!="undefined")) {
                     schema.properties.valueText.default = options.properties.valueText.value.default;
+
+                    //schema.properties.valueValueText.default = this.options.dataEntryVariables.options.valueText;
+                    schema.properties.valueValueText.default = "ValueText";
+                    //o.dataEntryVariables.options.valueValueText_enum_values[0]
+                    //console.log(this.options.dataEntryVariables.valueValueText_enum_values[1]);
+                    //console.log(this.options.dataEntryVariables.options.valueText);
+                    //console.log("IF 2 " + schema.properties.valueValueText.default);
                 }
             }
             else {

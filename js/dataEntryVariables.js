@@ -17,7 +17,11 @@ define([
         localCondition_path : 'root.localCondition',
         openListfieldsToDisable : ['policyElement', 'unit', 'source', 'secondGenerationSpecific', 'localCondition'],
         fieldsToDisable : ['valueText'],
-        lang : 'EN'
+        lang : 'EN',
+        codes : {
+            importTariffs : 11,
+            tariffQuotas : 12
+        }
     };
 
     function DataEntryVariables(o) {

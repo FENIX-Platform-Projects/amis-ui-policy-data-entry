@@ -12,6 +12,7 @@ define(['i18n!nls/dataEntry'], function(DataEntry) {
     //            "enum": [
     //                "Yes, officially",
     //                "Yes, not officially",
+    //                "Yes, not officially",
     //                "No",
     //                "Not sure"
     //            ]

@@ -84,10 +84,8 @@ define(['sweetAlert'], function(swal) {
                     group.appendChild(label);
 
                     /* Custom implementation for the description field. */
-                    //if (description)
-                    //    group.appendChild(this.createDescription(description));
                     if (description)
-                        group.appendChild(description);
+                        group.appendChild(this.createDescription(description));
 
                     input.style.position = 'relative';
                     input.style.cssFloat = 'left';
@@ -103,10 +101,8 @@ define(['sweetAlert'], function(swal) {
                     }
 
                     /* Custom implementation for the description field. */
-                    //if (description)
-                    //    group.appendChild(this.createDescription(description));
                     if (description)
-                       group.appendChild(description);
+                        group.appendChild(this.createDescription(description));
 
                     group.appendChild(input);
 

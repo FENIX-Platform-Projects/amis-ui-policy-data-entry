@@ -200,7 +200,7 @@ define([
         var startDateNDATE = new Date(startDateN);
         //11/11/2007
         var endDateN_1 = policyN_1.EndDate;
-        var app_endDate = endDateN_1.split("/");
+        var app_endDate = endDateN_1.split("-");
         console.log(endDateN_1)
         var endDateOtherFormat = app_endDate[2]+"-"+app_endDate[1]+"-"+app_endDate[0];
         var endDateOtherFormatDate = new Date(endDateOtherFormat);
@@ -228,7 +228,7 @@ define([
         }
         else{
             if(policyMeasureCode == this.options.policyVariablesObj.options.policyMeasures.codes.licensingRequirement){
-                if((valueTextN!=null)&&(typeof valueTextN!='undefined')(valueTextN.length>0)){
+                if((valueTextN!=null)&&(typeof valueTextN!='undefined')&&(valueTextN.length>0)){
                     if(valueTextN==this.options.policyVariablesObj.options.ELIM){
                         typeOfChangeField = this.options.policyVariablesObj.options.result.code.elimination;
                     }
@@ -247,7 +247,7 @@ define([
             }
             else{
                 if(policyMeasureCode == this.options.policyVariablesObj.options.policyMeasures.codes.restrictionOnCustomsClearancePointForExports){
-                    if((valueTextN!=null)&&(typeof valueTextN!='undefined')(valueTextN.length>0)){
+                    if((valueTextN!=null)&&(typeof valueTextN!='undefined')&&(valueTextN.length>0)){
                         if(valueTextN==this.options.policyVariablesObj.options.ELIM){
                             typeOfChangeField = this.options.policyVariablesObj.options.result.code.elimination;
                         }

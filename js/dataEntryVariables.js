@@ -18,6 +18,8 @@ define([
         openListfieldsToDisable : ['policyElement', 'unit', 'source', 'secondGenerationSpecific', 'localCondition'],
         fieldsToDisable : ['valueText'],
         lang : 'EN',
+        dataEntryToolClassDiv : '.fx-jsonform',
+        mandatoryFieldsError : 'mandatoryFieldsErrorDiv',
         codes : {
             importTariffs : 11,
             tariffQuotas : 12

@@ -202,15 +202,6 @@ define([
             else {
                 delete schema.properties.unit;
             }
-            alert("SchemaUtils before value or valueText")
-            console.log(schema.properties)
-            console.log(schema.properties.value)
-            console.log(schema.properties.valueText)
-            console.log(schema.properties.valueValueText)
-            console.log(this.options.dataEntryVariables)
-            console.log(this.options.dataEntryVariables.options)
-            console.log(this.options.dataEntryVariables.options.value)
-
             if ((options.properties.value != null) && (typeof options.properties.value != "undefined")) {
                 if ((options.properties.value.value!=null)&&(typeof options.properties.value.value!="undefined")&&(options.properties.value.value.default!= null)&&(typeof options.properties.value.value.default!="undefined")) {
                     schema.properties.value.default = options.properties.value.value.default;
@@ -221,12 +212,8 @@ define([
                 daleteValueValueText++;
                 delete schema.properties.value;
             }
-            alert("SchemaUtils before valueText 2")
+
             if ((options.properties.valueText != null) && (typeof options.properties.valueText != "undefined")) {
-                console.log("IF 1");
-                console.log(schema.properties);
-                console.log(schema.properties.valueValueText);
-                console.log(schema.properties.valueValueText.default);
                 if ((options.properties.valueText.value!=null)&&(typeof options.properties.valueText.value!="undefined")&&(options.properties.valueText.value.default!= null)&&(typeof options.properties.valueText.value.default!="undefined")) {
                     schema.properties.valueText.default = options.properties.valueText.value.default;
 

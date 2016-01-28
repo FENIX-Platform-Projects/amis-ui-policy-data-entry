@@ -155,7 +155,6 @@ require([
             $loading = $(this).next('.loader');
 
             if(_.isEmpty(doc)) {
-                alert('Questionnaire is Empty!');
                 return false;
             }
 

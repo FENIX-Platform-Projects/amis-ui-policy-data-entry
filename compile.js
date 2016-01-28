@@ -87,15 +87,9 @@ require([
         });
         id = "cat1";
         require(['json/'+ id ], function(schema) {
-
-            alert("Before render")
             console.log("id= "+id)
             console.log("Schema start")
             console.log(schema)
-            console.log("Schema end")
-            console.log("formStore.getSections(id) start")
-            console.log(formStore.getSections(id))
-            console.log("formStore.getSections(id) end")
             renderForm('#'+ id, {
                 schema: schema,
                 iconlib: 'fontawesome4',

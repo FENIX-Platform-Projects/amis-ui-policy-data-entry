@@ -4,8 +4,9 @@ define([
     'calculated_values_algorithms/policyDataObject',
     'calculated_values_algorithms/typeOfChangeField_algorithms',
     'calculated_values_algorithms/valueTypeField',
-    'js/policyVariables'
-], function ($, ap_policyDataObject, TypeOfChangeFieldAlgorithms, ValueTypeField, PolicyVariables) {
+    'js/policyVariables',
+    'ap-dataEntry/dataEntryVariables'
+], function ($, ap_policyDataObject, TypeOfChangeFieldAlgorithms, ValueTypeField, PolicyVariables, DataEntryVariables) {
 
     var o = {
         dataEntryVariables : '',
@@ -19,6 +20,7 @@ define([
             getPolicyByCplId_url : '/wdspolicy/rest/policyservice/dataManagementTool/getPolicyByCplId',
             getCpl_id_url : '/wdspolicy/rest/policyservice/dataManagementTool/getCpl_id',
             get_cplIdMaxCode : '/wdspolicy/rest/policyservice/dataManagementTool/cplIdMaxCode',
+            get_policyIdMaxCode : '/wdspolicy/rest/policyservice/dataManagementTool/policyIdMaxCode',
             save : '/wdspolicy/rest/policyservice/dataManagementTool/save'
         }
     };
@@ -32,6 +34,8 @@ define([
 
     TypeOfChangeField.prototype.init = function (options) {
         this.options.policyVariablesObj = new PolicyVariables();
+        var dataEntryVariables = new DataEntryVariables();
+        o.dataEntryVariables = dataEntryVariables;
         var alghoritm_to_apply = this.alghoritm_calculator(options);
     };
 
@@ -98,8 +102,8 @@ define([
                     if (typeof(response) == 'string')
                         json = $.parseJSON(response);
                     //Could be "NOT_FOUND"
-                    console.log("json ***"+json+"***");
                     if((json.indexOf("NOT_FOUND") > -1)){
+                        console.log("(json.indexOf(NOT_FOUND) > -1)");
                         //The cpl has not been found
                         var options ={};
                         options.policyN = {};
@@ -118,7 +122,31 @@ define([
                                     var newCplId = cplIdResponseInt+1;
                                     options.policyN.master_data.cpl_id= ""+newCplId;
                                     options.policyN.master_data.dataManagementToolObj.master_data.CplId= ""+newCplId;
-                                    self.alghoritm_setting(options,self);
+
+                                    var urlCplMax = 'http://'+self.options.base_ip_address +':'+self.options.base_ip_port + self.options.url.get_policyIdMaxCode+"/"+self.options.datasource;
+                                    $.ajax({
+                                        type: 'GET',
+                                        url: urlCplMax,
+                                        dataType: 'json',
+
+                                        success: function (response) {
+                                            if((response!=null)&&(typeof response!='undefined')){
+                                                var policyIdResponseInt = parseInt(response,10);
+                                                var newPolicyId = policyIdResponseInt+1;
+                                                //console.log(options.policyN);
+                                                console.log(self.options.dataManagementToolObj)
+                                                self.options.dataManagementToolObj.policy_data.Policy_id= ""+newPolicyId;
+                                                //options.policyN.master_data.dataManagementToolObj.master_data.CplId= ""+newCplId;
+                                                console.log(options);
+                                                console.log(options.policyN);
+                                                self.alghoritm_setting(options,self);
+                                            }
+                                        },
+
+                                        error: function (err, b, c) {
+                                            alert(err.status + ", " + b + ", " + c);
+                                        }
+                                    });
                                 }
                             },
 
@@ -128,7 +156,33 @@ define([
                         });
                     }
                     else{
-                        self.loadPolicyByCplId(data, self);
+                        json = ''+json[0];
+                        self.options.dataManagementToolObj.master_data.CplId = json;
+                        data.cpl_id = json;
+
+                        var urlCplMax = 'http://'+self.options.base_ip_address +':'+self.options.base_ip_port + self.options.url.get_policyIdMaxCode+"/"+self.options.datasource;
+                        $.ajax({
+                            type: 'GET',
+                            url: urlCplMax,
+                            dataType: 'json',
+
+                            success: function (response) {
+                                if((response!=null)&&(typeof response!='undefined')){
+                                    var policyIdResponseInt = parseInt(response,10);
+                                    var newPolicyId = policyIdResponseInt+1;
+                                    //console.log(options.policyN);
+                                    console.log(self.options.dataManagementToolObj)
+                                    self.options.dataManagementToolObj.policy_data.Policy_id= ""+newPolicyId;
+                                    //options.policyN.master_data.dataManagementToolObj.master_data.CplId= ""+newCplId;
+                                    //console.log(options);
+                                    //console.log(options.policyN);
+                                    self.loadPolicyByCplId(data, self);
+                                }
+                            },
+                            error: function (err, b, c) {
+                                alert(err.status + ", " + b + ", " + c);
+                            }
+                        });
                     }
                 },
                 error : function(err,b,c) {
@@ -160,6 +214,8 @@ define([
         return alghoritm;
     };
 
+    //This method can be called only if the cpl_id has been found
+    //So can not return policy= NOT FOUND in this context
     TypeOfChangeField.prototype.loadPolicyByCplId = function (data, self) {
         var url = 'http://'+this.options.base_ip_address +':'+this.options.base_ip_port + this.options.url.getPolicyByCplId_url;
         var payloadrest = JSON.stringify(data);
@@ -176,7 +232,9 @@ define([
                 var json = response;
                 if (typeof(response) == 'string')
                     json = $.parseJSON(response);
-                if(json.length>0){
+                //Has been found and is not NOT FOUND
+                if((json.length>0)&&(json.indexOf("NOT_FOUND") <0)){
+                //if(json.length>0){
                     var metadata_id = [];
                     var policy_id = [];
                     var cpl_id = [];
@@ -396,6 +454,7 @@ define([
                     }
                     var policy_record = policytable_data[0];
                     //self.alghoritm_chooser(policy_record)
+                    console.log("Policy n-1 found")
                     self.alghoritm_chooser(policytable_data,self)
                 }
                 else{
@@ -455,12 +514,18 @@ define([
         console.log(self.options)
         var algorithm_index = options.algorithm_index;
         var policyN_1 = options.policyN_1;
+        this.options.dataManagementToolObj.policy_data.CplId= this.options.dataManagementToolObj.master_data.CplId;
         options.policyN = this.options.dataManagementToolObj;
+        console.log(this.options.dataManagementToolObj)
+        console.log(options.policyN)
+        //options.policyN.policy_data.cpl_id= options.policyN.master_data.cpl_id;
+        //this.options.dataManagementToolObj.policy_data.cpl_id= options.policyN.master_data.cpl_id;
         var policyN = options.policyN;
 
         //Set "Type Of Change" Field
         var typeOfChange = '';
 
+        console.log("Before choose algo "+algorithm_index)
         //Options now contains Policy(n) and Policy(n-1)
         switch (algorithm_index) {
             case 0:
@@ -487,39 +552,66 @@ define([
         options.policyN.policy_data.typeOfChangeName = this.options.policyVariablesObj.options.result.mapping[typeOfChange];
 
         if (policyN_1) {
+            console.log("policyN_1 true .... end date calculation")
             var policy_data = policyN.policy_data;
             var endDate_policyN_1 = policyN_1["EndDate"];
             if ((endDate_policyN_1 != null) && (typeof endDate_policyN_1 != 'undefined') && (endDate_policyN_1.length > 0)) {
+                //If the policy N-1 has already the end date this field has not to be updated
+            }
+            else{
+                //If the policy N-1 has the end date empty
+                //the end date of policy N-1 has to be set like the start date of policy N menus one day
                 var startDate_policyN = policy_data.StartDate;
+                console.log(startDate_policyN)
                 var startDateIndex = startDate_policyN.indexOf(startDate_policyN);
-                var startDateArray = startDate_policyN.split('/');
+                var startDateArray = startDate_policyN.split('-');
                 var start_date_day = startDateArray[0];
-                var start_date_month = startDateArray[1];
+                var start_date_month = parseInt(startDateArray[1],10)-1;
                 var start_date_year = startDateArray[2];
+                console.log(start_date_year)
+                console.log(start_date_month)
+                console.log(start_date_day)
                 var d = new Date(start_date_year, start_date_month, start_date_day);
                 //Remove one day from the start date to update the end date of the previous policy
-                var new_end_date = d.getDate() - 1;
-                new_end_date = new Date(new_end_date);
+                console.log(d.getDate())
+                var dateOffset = (24*60*60*1000); //1 day
+                var new_end_date = new Date();
+                console.log(dateOffset)
+                console.log(d.getTime())
+                new_end_date.setTime(d.getTime() - dateOffset);
+
+                //var new_end_date = d.getDate() - 1;
+                console.log(new_end_date)
+                //new_end_date = new Date(new_end_date);
+                //console.log(new_end_date)
                 //var imposed_end_date = 'true';
                 var imposed_end_date = 'Yes';
-                options.policyN_1.EndDate = new_end_date.getDate();
+                var day = new_end_date.getDate();
+                day = ''+day;
+                console.log(day.length)
+                if(day.length<2){
+                    day = '0'+day;
+                }
+                var newMonth= new_end_date.getMonth()+1;
+                newMonth = ''+newMonth;
+                console.log(newMonth.length)
+                if(newMonth.length<2){
+                    newMonth = '0'+newMonth;
+                }
+
+                options.policyN_1.EndDate = ""+day+"-"+newMonth+"-"+new_end_date.getFullYear();
+                console.log(options.policyN_1.EndDate)
                 options.policyN_1.ImposedEndDate = imposed_end_date;
+                console.log(options.policyN_1)
             }
         }
 
         //Value Type Field
         var valueType = valueTypeFieldObj.field_calculator(options);
         options.policyN.policy_data.ValueType = valueType;
-
-        alert("Before LAST SAVE")
-        console.log("Before Save!!!")
         console.log(options)
-        console.log(("PolicyN Start"))
         console.log(options.policyN)
-        console.log(("PolicyN End"))
-        console.log(("PolicyN_1 Start"))
         console.log(options.policyN_1)
-        console.log(("PolicyN_1 Start"))
         //Prepare object to Save
         var app ={};
         app.policyN = options.policyN;
@@ -535,10 +627,7 @@ define([
             objToSave.saveAction = "EDIT";
         }
         objToSave.save_fields = self.policyObjCreation(app);
-        objToSave.dataSource = 'POLICY';
-        console.log(objToSave)
-
-        alert("End LAST SAVE")
+        objToSave.datasource = 'POLICY';
         //Save in the policytable PolicyN_1(overwrite) and PolicyN(can be overwrite or add)
         //Save in the historical changes
         //Recreate the view
@@ -551,7 +640,11 @@ define([
             data: {"pdObj": payloadrest},
 
             success: function (response) {
-                alert("In success save")
+                if(document.getElementById(o.dataEntryVariables.options.mandatoryFieldsError)!=null){
+                    document.getElementById(o.dataEntryVariables.options.mandatoryFieldsError).remove();
+                }
+                var msg = "The Policy has been saved";
+                $(o.dataEntryVariables.options.dataEntryToolClassDiv).append("<div id="+ o.dataEntryVariables.options.mandatoryFieldsError+">"+msg+"</div>");
             },
             error : function(err,b,c) {
                 alert(err.status + ", " + b + ", " + c);
@@ -595,6 +688,8 @@ define([
         data = options.policyN.policy_data;
         var policy = "policyN";
         if((data!=null)&&(typeof data!="undefined")) {
+            policiesToSave[policy]["CplId"] = data.CplId;
+            policiesToSave[policy]["CommodityId"] = data.CommodityId;
             policiesToSave[policy]["BenchmarkLink"] = data.BenchmarkLink;
             policiesToSave[policy]["BenchmarkLinkPdf"] = data.BenchmarkLinkPdf;
             policiesToSave[policy]["DateOfPublication"] = data.DateOfPublication;
@@ -634,12 +729,16 @@ define([
             policiesToSave[policy]["uid"] = data.uid;
         }
 
+        console.log(options)
         //In the PolicyN_1 the field in the master are the same
         data = options.policyN_1;
+        console.log(data)
         policy = "policyN_1";
-        if ((data != null) && (typeof data != 'undefined')) {
-            data = options.policyN_1.policy_data;
+        //if ((data != null) && (typeof data != 'undefined')) {
+        //    data = options.policyN_1.policy_data;
             if ((data != null) && (typeof data != "undefined")) {
+                policiesToSave[policy]["CplId"] = data.CplId;
+                policiesToSave[policy]["CommodityId"] = data.CommodityId;
                 policiesToSave[policy]["BenchmarkLink"] = data.BenchmarkLink;
                 policiesToSave[policy]["BenchmarkLinkPdf"] = data.BenchmarkLinkPdf;
                 policiesToSave[policy]["DateOfPublication"] = data.DateOfPublication;
@@ -687,7 +786,7 @@ define([
 
 
             }
-        }
+      //  }
         return policiesToSave;
     }
 

@@ -11,9 +11,9 @@ define({
             "policyMeasure": "Policy Measure",
             "policyCondition": "Policy Condition"
         },
-        "link": "Link",
+        "link": "Link [MANDATORY]",
         "linkDescription": "Enter the hyperlink(s) of the webpage(s) with the legal notice or official document which contains the information on the measure. Separate multiple links with a ;",
-        "linkPdf": "Link Pdf",
+        "linkPdf": "Link Pdf [MANDATORY]",
         "linkPdfDescription": "Save the webpage as a pdf, give it a name and upload it here. If there are multiple links, save each of them separately as a pdf. Saving the website as a pdf document guarantees that the relevant information remains available when the website is no longer active.",
         "policyElement": "Policy Element",
         "policyElementAdditionalName": "Policy Element Additional Name",

@@ -145,12 +145,34 @@ define(['i18n!nls/dataEntry'], function(DataEntry) {
                 description:  DataEntry['linkDescription'],
                 default: ""
             },
-            linkPdf: {
-                type: "string",
-                title: DataEntry['linkPdf'],
-                description:  DataEntry['linkPdfDescription'],
-                default: ""
-            },
+            //linkPdf: {
+            //    type: "string",
+            //    title: DataEntry['linkPdf'],
+            //    description:  DataEntry['linkPdfDescription'],
+            //    default: ""
+            //},
+            //linkPdfUpload: {
+            //    type: "object",
+            //    title: DataEntry['linkPdf'],
+            //    properties: {
+            //        upload_default: {
+            //            type: "string",
+            //            format: "url",
+            //            //format: "file",
+            //            title:  DataEntry['linkPdfDescription'],
+            //            //title: "Enter the file and press Upload button to store it",
+            //            options: {
+            //                upload: true
+            //            },
+            //            default: "/home/barbara/Documenti/"
+            //            //"links": [
+            //            //    {
+            //            //        "href": "{{self}}"
+            //            //    }
+            //            //]
+            //        },
+            //    }
+            //},
             policyElement: {
                 type: "object",
                 title: DataEntry['policyElement'],

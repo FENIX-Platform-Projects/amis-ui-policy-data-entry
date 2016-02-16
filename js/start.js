@@ -153,6 +153,10 @@ define([
                             path = dataEntryVariables.options.localCondition_path;
                             field = self.render.editor.getEditor(path);
                             self.disableNameInOpenList(field, dataEntryVariables);
+                            //self.render.editor.setValue({
+                            //    linkPdfUpload: "/home/barbara/Documenti/"
+                            //});
+
                             //Value and Value Text based on valueValueText selection
                             path = dataEntryVariables.options.valueValueText_path;
                             var valueValueTextField = self.render.editor.getEditor(path);
@@ -338,14 +342,20 @@ define([
         if((data!=null)&&(typeof data!="undefined")){
             if((data.startDate!=null)&&(typeof data.startDate!="undefined")&&(data.startDate.length==10)){
                 if((data.dateOfPublication!=null)&&(typeof data.dateOfPublication!="undefined")&&(data.dateOfPublication.length==10)){
-                    ris = true;
+                    if((data.link!=null)&&(typeof data.link!="undefined")&&(data.link.length>0)){
+                        console.log(data)
+                        ris = true;
+                    }
+                    else{
+                        errorString+= 'Please, before saving complete the field: LINK';
+                    }
                 }
                 else{
-                    errorString+= 'Please, before saving fill: DATE OF PUBLICATION (in DD-MM-YYY format)';
+                    errorString+= 'Please, before saving complete the field: DATE OF PUBLICATION (in DD-MM-YYY format)';
                 }
             }
             else{
-                errorString = 'Please, before saving fill: START DATE (in DD-MM-YYY format)';
+                errorString = 'Please, before saving complete the field: START DATE (in DD-MM-YYY format)';
             }
         }
         if(document.getElementById(dataEntryVariables.options.mandatoryFieldsError)!=null){
@@ -357,6 +367,46 @@ define([
         }
         return ris;
     };
+
+    //This is the original
+    //Start.prototype.lastMandatoryFields = function(data, dataEntryVariables){
+    //    var ris= false;
+    //    var errorString ='';
+    //    if((data!=null)&&(typeof data!="undefined")){
+    //        if((data.startDate!=null)&&(typeof data.startDate!="undefined")&&(data.startDate.length==10)){
+    //            if((data.dateOfPublication!=null)&&(typeof data.dateOfPublication!="undefined")&&(data.dateOfPublication.length==10)){
+    //                console.log(data)
+    //                console.log(data.link)
+    //                console.log(data.linkPdf)
+    //                if((data.link!=null)&&(typeof data.link!="undefined")&&(data.link.length>0)){
+    //                    if((data.linkPdf!=null)&&(typeof data.linkPdf!="undefined")&&(data.linkPdf.length>0)){
+    //                        ris = true;
+    //                    }
+    //                    else{
+    //                        errorString+= 'Please, before saving fill: LINK PDF';
+    //                    }
+    //                }
+    //                else{
+    //                    errorString+= 'Please, before saving fill: LINK';
+    //                }
+    //            }
+    //            else{
+    //                errorString+= 'Please, before saving fill: DATE OF PUBLICATION (in DD-MM-YYY format)';
+    //            }
+    //        }
+    //        else{
+    //            errorString = 'Please, before saving fill: START DATE (in DD-MM-YYY format)';
+    //        }
+    //    }
+    //    if(document.getElementById(dataEntryVariables.options.mandatoryFieldsError)!=null){
+    //        document.getElementById(dataEntryVariables.options.mandatoryFieldsError).remove();
+    //    }
+    //    if(ris==false){
+    //        //".fx-jsonform"
+    //        $(dataEntryVariables.options.dataEntryToolClassDiv).append("<div id="+dataEntryVariables.options.mandatoryFieldsError+">"+errorString+"</div>");
+    //    }
+    //    return ris;
+    //};
 
     Start.prototype.valueValueTextChanged = function (valueValueTextField, valueField, ValueTextField, unit_field, dataEntryVariables) {
         if((valueValueTextField!=null)&&(typeof valueValueTextField!="undefined")){

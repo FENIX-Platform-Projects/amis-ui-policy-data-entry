@@ -70,12 +70,12 @@ define(['i18n!nls/dataEntry'], function(DataEntry) {
                 description:  DataEntry['linkDescription'],
                 default: ""
             },
-            linkPdf: {
-                type: "string",
-                title: DataEntry['linkPdf'],
-                description:  DataEntry['linkPdfDescription'],
-                default: ""
-            },
+            //linkPdf: {
+            //    type: "string",
+            //    title: DataEntry['linkPdf'],
+            //    description:  DataEntry['linkPdfDescription'],
+            //    default: ""
+            //},
             policyElement: {
                 type: "object",
                 title: DataEntry['policyElement'],

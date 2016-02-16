@@ -173,6 +173,7 @@ define([
                                     //console.log(options.policyN);
                                     console.log(self.options.dataManagementToolObj)
                                     self.options.dataManagementToolObj.policy_data.Policy_id= ""+newPolicyId;
+                                    data.policy_id = ""+newPolicyId;
                                     //options.policyN.master_data.dataManagementToolObj.master_data.CplId= ""+newCplId;
                                     //console.log(options);
                                     //console.log(options.policyN);
@@ -196,6 +197,7 @@ define([
             var cpl_id = this.options.dataManagementToolObj.master_data.CplId;
             data.cpl_id = cpl_id;
             data.commodity_id = this.options.dataManagementToolObj.master_data.CommodityId;
+            data.policy_id = this.options.dataManagementToolObj.policy_data.Policy_id;
 
             if((cpl_id!=null)&&(typeof cpl_id!="undefined")&&(cpl_id.length>0)){
                 //Getting Policy(n-1)
@@ -631,7 +633,6 @@ define([
         //Save in the policytable PolicyN_1(overwrite) and PolicyN(can be overwrite or add)
         //Save in the historical changes
         //Recreate the view
-
         var url = 'http://'+self.options.base_ip_address +':'+self.options.base_ip_port + self.options.url.save;
         var payloadrest = JSON.stringify(objToSave);
         $.ajax({

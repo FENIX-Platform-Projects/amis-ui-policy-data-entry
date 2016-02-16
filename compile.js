@@ -24,7 +24,8 @@ require([
                 amplify:   "{FENIX_CDN}/js/amplify/1.1.2/amplify.min",
                 handlebars:"{FENIX_CDN}/js/handlebars/2.0.0/handlebars",
                 underscore:"{FENIX_CDN}/js/underscore/1.8.0/underscore.min",
-                jsoneditor:"{FENIX_CDN}/js/json-editor/0.7.17/jsoneditor.min",
+                //jsoneditor:"{FENIX_CDN}/js/json-editor/0.7.17/jsoneditor.min",
+                jsoneditor:"{FENIX_CDN}/js/json-editor/0.7.23/jsoneditor.min",
 
                 'fx-common': 'submodules/fenix-ui-common'
             },

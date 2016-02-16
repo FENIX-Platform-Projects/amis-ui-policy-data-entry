@@ -161,7 +161,9 @@ define([
 
         if ((options.properties.linkPdf != null) && (typeof options.properties.linkPdf != "undefined")) {//OK
             if ((options.properties.linkPdf.value!=null)&&(typeof options.properties.linkPdf.value!="undefined")&&(options.properties.linkPdf.value.default!= null)&&(typeof options.properties.linkPdf.value.default!="undefined")) {
-                schema.properties.linkPdf.default = options.properties.linkPdf.value.default;
+                if((schema.properties.linkPdf !=null)&&(typeof schema.properties.linkPdf != "undefined")){
+                    schema.properties.linkPdf.default = options.properties.linkPdf.value.default;
+                }
             }
         }
         else {

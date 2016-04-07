@@ -123,7 +123,7 @@ define(['i18n!nls/dataEntry'], function(DataEntry) {
             valueValueText: {
                 type: "string",
                 format: "select",
-                title: "Value Type",
+                title: "Value Structure",
                 description:  DataEntry['valueOrValueTextDescription'],
                 uniqueItems: true,
                 enum: [DataEntry['value'], DataEntry['valueText']],
@@ -346,6 +346,32 @@ define(['i18n!nls/dataEntry'], function(DataEntry) {
               //  description:  DataEntry['productOriginalNameDescription'],
                 default: ""
             }
+            //linkPdf: {
+            //    type: "string",
+            //    title: DataEntry['linkPdf'],
+            //    description:  DataEntry['linkPdfDescription'],
+            //    default: ""
+            //},
+            //"linkPdf": {
+            //    "type": "array",
+            //    "format": "table",
+            //    "title": DataEntry['linkPdf'],
+            //    "uniqueItems": true,
+            //    "items": {
+            //        "type": "object",
+            //        "title": "File",
+            //        "properties": {
+            //            "File": {
+            //                "type": "string"
+            //            }
+            //        }
+            //    },
+            //    "default": [
+            //        //{
+            //        //    "File": "Walter"
+            //        //}
+            //    ]
+            //}
 
             //"link"
             //"linkPdf"

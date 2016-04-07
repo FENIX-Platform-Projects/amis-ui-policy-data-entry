@@ -2530,3 +2530,7 @@ thead {
 
 .modal-dialog {
     z-index: 1041; }
+
+#searchEditPolicy .well{
+    background: transparent !important;
+}

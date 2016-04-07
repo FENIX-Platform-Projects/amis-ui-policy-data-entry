@@ -71,7 +71,7 @@ define(['sweetAlert'], function(swal) {
 
             getFormControl: function (label, input, description) {
 
-                if (label.innerHTML == 'Resource identification code') {
+                if (label!=null && typeof label!='undefined' && label.innerHTML == 'Resource identification code') {
                 }
 
                 var group = document.createElement('div');

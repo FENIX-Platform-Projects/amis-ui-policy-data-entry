@@ -35,6 +35,8 @@ define([
         data.subnational_for_coutry_lev_3 = "";
         //key=subnational_code -> subnational_name
         data.subnational_lev_3 = "";
+        data.fileName = "";
+        data.md5 = "";
 
 //        data.showNull = true;
 //        data.showZeroes = true;

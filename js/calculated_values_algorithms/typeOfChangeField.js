@@ -5,8 +5,9 @@ define([
     'calculated_values_algorithms/typeOfChangeField_algorithms',
     'calculated_values_algorithms/valueTypeField',
     'js/policyVariables',
-    'ap-dataEntry/dataEntryVariables'
-], function ($, ap_policyDataObject, TypeOfChangeFieldAlgorithms, ValueTypeField, PolicyVariables, DataEntryVariables) {
+    'ap-dataEntry/dataEntryVariables',
+    'fx-common/fx-upload-client'
+], function ($, ap_policyDataObject, TypeOfChangeFieldAlgorithms, ValueTypeField, PolicyVariables, DataEntryVariables, Uploader) {
 
     var o = {
         dataEntryVariables : '',
@@ -645,12 +646,50 @@ define([
                     document.getElementById(o.dataEntryVariables.options.mandatoryFieldsError).remove();
                 }
                 var msg = "The Policy has been saved";
+                if (self.options.fileName == "searchAddPolicy"){
+                    //In Add Policy the file upload can be enabled
+                    //only after that the associated policy has been
+                    //created.
+                    //$(o.UPLOAD_CONTAINER).enableSelection();
+                    console.log(self)
+                    self.initUploadComponent(self);
+                    document.getElementById("uploader-container-summary").disabled=false;
+                    document.getElementById("fx-uploader-input").disabled=false;
+                }
                 $(o.dataEntryVariables.options.dataEntryToolClassDiv).append("<div id="+ o.dataEntryVariables.options.mandatoryFieldsError+">"+msg+"</div>");
             },
             error : function(err,b,c) {
                 alert(err.status + ", " + b + ", " + c);
             }
         });
+    };
+
+    TypeOfChangeField.prototype.initUploadComponent = function(self){
+        console.log("In initUploadComponent start")
+        console.log(self)
+        var config = {
+            container: self.options.UPLOAD_CONTAINER,
+            context: "policy",
+            //server_url: 'http://168.202.28.32:8080/v1',
+            server_url: 'http://fenixservices.fao.org/upload',
+            //body_post_process : { policy : o.policyId},
+            body_post_process : { policy : self.options.dataManagementToolObj.policy_data.Policy_id},
+            body_create_file : {
+                size: "@file.size",
+                name: "@file.name"
+            }
+        };
+
+        self.options.startObj.setPolicyId(self.options.dataManagementToolObj.policy_data.Policy_id);
+        self.uploader = new Uploader();
+        var tbl = document.createElement('table');
+        tbl.className = 'table table-bordered';
+        tbl.id = "uploadFileTable";
+        document.getElementById("uploadFileTableContainer").appendChild(tbl);
+
+        amplify.subscribe(self.options.events.event_prefix + self.options.events.FINISH, self.options.p);
+
+        self.uploader.render(config);
     };
 
     TypeOfChangeField.prototype.policyObjCreation = function (options) {

@@ -59,6 +59,34 @@
 
 <div class="container" id="contentQ" style="min-height:750px">
     <div id="searchEditPolicy"></div>
+    <!-- FENIX uploader client - container -->
+    <!--<div class="fx-uploader-container">-->
+
+        <!--<div class="fx-uploader-header">-->
+            <!--<span id="fx-uploader-input-opener" class="fx-widget-icons icojam_pill_8"></span>-->
+            <!--<input id="fx-uploader-input" type="file" name="files[]"  accept=".csv" >-->
+        <!--</div>-->
+
+    <!--</div>-->
+
+    <!--<ul id="fx-uploader-list" class="list-unstyled"></ul>-->
+    <div class="amis-uploader-container">
+        <div id="uploader-container-summary">
+            <div class="row">
+                <div class="col-xs-10 fmd-menu-col">
+                    <label class=" control-label">Link Pdf[MANDATORY]</label>
+                    <div>Save the webpage as a pdf, give it a name and upload it here. If there are multiple links, save each of them separately as a pdf. Saving the website as a pdf document guarantees that the relevant information remains available when the website is no longer active.<div>
+                    <div class="table-responsive" id='uploadFileTableContainer'>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="uploader-container"></div>
+    </div>
+
+    <div id="sectionstorage-loader"><h4>Auto Saving...</h4></div>
+        </div>
+    </div>
 
     <div class="container fmd-footer-container">
         <footer>
@@ -66,10 +94,7 @@
         </footer>
     </div>
 
-    <div id="sectionstorage-loader"><h4>Auto Saving...</h4></div>
-
 </div>
-
     <script data-main="compile" src="//fenixrepo.fao.org/cdn/js/requirejs/2.1.15/require.min.js"></script>
 </body>
 </html>

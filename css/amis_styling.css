@@ -703,12 +703,12 @@ input::-moz-focus-inner {
     font-size: 12px;
 }
 
-/*Grid*/
-.jqx-grid-group-collapse{
+/*Upload File Table*/
+.jqx-upload-file-add{
     background-image:  url(../img/plusBlue.png);
 }
 
-.jqx-grid-group-expand{
+.jqx-upload-file-remove{
     background-image:  url(../img/minusBlue.png);
 }
 
@@ -722,4 +722,8 @@ label.control-label{
     color: #666666;
     font-family: "arial";
     font-size: 12px;
+}
+
+#searchEditPolicy .well{
+    background: transparent !important;
 }

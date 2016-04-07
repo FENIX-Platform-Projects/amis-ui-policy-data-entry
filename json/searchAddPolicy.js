@@ -220,7 +220,7 @@ define(['i18n!nls/dataEntry'], function(DataEntry) {
             valueValueText: {
                 type: "string",
                 format: "select",
-                title: "Value Type",
+                title: "Value Structure",
                 description:  DataEntry['valueOrValueTextDescription'],
                 uniqueItems: true,
                 enum: [DataEntry['value'], DataEntry['valueText']],

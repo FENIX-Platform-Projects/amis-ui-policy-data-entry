@@ -13,6 +13,7 @@ define([
         valueValueText_path : 'root.valueValueText',
         value_path : 'root.value',
         valueText_path : 'root.valueText',
+        linkPdf_path : 'root.linkPdf',
         valueValueText_enum_values : [DataEntry['value'], DataEntry['valueText']],
         localCondition_path : 'root.localCondition',
         openListfieldsToDisable : ['policyElement', 'unit', 'source', 'secondGenerationSpecific', 'localCondition'],

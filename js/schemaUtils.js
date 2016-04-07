@@ -162,7 +162,15 @@ define([
         if ((options.properties.linkPdf != null) && (typeof options.properties.linkPdf != "undefined")) {//OK
             if ((options.properties.linkPdf.value!=null)&&(typeof options.properties.linkPdf.value!="undefined")&&(options.properties.linkPdf.value.default!= null)&&(typeof options.properties.linkPdf.value.default!="undefined")) {
                 if((schema.properties.linkPdf !=null)&&(typeof schema.properties.linkPdf != "undefined")){
-                    schema.properties.linkPdf.default = options.properties.linkPdf.value.default;
+                    var linkPdfArray = options.properties.linkPdf.value.default.split(';');
+                    for(var i=0; i<linkPdfArray.length; i++){
+                        //Removing white space at the start and at the end of each file name
+                        var fileName = linkPdfArray[i].trim();
+                        //Object creation
+                        var obj = {"File": fileName};
+                        schema.properties.linkPdf.default.push(obj);
+                    }
+                    console.log(schema.properties.linkPdf)
                 }
             }
         }
@@ -461,11 +469,17 @@ define([
             var enumTitlesToFill = schema.properties[field].properties.list.options.enum_titles;
 
             if((enumToFill!= null)&&(typeof enumToFill!= "undefined")){
+                console.log(enumToFill.length)
                 enumToFill.push(this.options.dataEntryVariables.options.OTHER);
                 enumTitlesToFill.push(this.options.dataEntryVariables.options.OTHER);
                 for(var iJsonCodes= 0; iJsonCodes<jsonCodes.length; iJsonCodes++){
                     enumToFill.push(''+jsonCodes[iJsonCodes].code);
                     enumTitlesToFill.push(''+jsonCodes[iJsonCodes].title["EN"]);
+                }
+                console.log(enumToFill.length)
+                for(var iJ= 0; iJ<enumToFill.length; iJ++){
+                    console.log("code= *"+enumToFill[iJ]+"*");
+                    console.log("label= *"+enumTitlesToFill[iJ]+"*");
                 }
             }
         }

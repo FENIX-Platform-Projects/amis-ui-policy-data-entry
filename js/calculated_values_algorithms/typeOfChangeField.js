@@ -253,7 +253,10 @@ define([
                     var value_text = [];
                     var value_type = [];
                     var exemptions = [];
-                    var location_condition = [];
+                    var MinAVTariffValue = [];
+                    var MaxAVTariffValue = [];
+                    var CountAVTariff = [];
+                    var CountNAVTariff = [];
                     var notes = [];
                     var link = [];
                     var source = [];
@@ -352,8 +355,8 @@ define([
                                     row["Exemptions"] = json[i][j];
                                     break;
                                 case 15:
-                                    location_condition[i] = json[i][j];
-                                    row["LocalCondition"] = json[i][j];
+                                    MinAVTariffValue[i] = json[i][j];
+                                    row["MinAVTariffValue"] = json[i][j];
                                     break;
                                 case 16:
                                     notes[i] = json[i][j];
@@ -449,6 +452,18 @@ define([
                                 case 40:
                                     shared_group_code[i] = json[i][j];
                                     row["Description"] = json[i][j];
+                                    break;
+                                case 41:
+                                    MaxAVTariffValue[i] = json[i][j];
+                                    row["MaxAVTariffValue"] = json[i][j];
+                                    break;
+                                case 42:
+                                    CountAVTariff[i] = json[i][j];
+                                    row["CountAVTariff"] = json[i][j];
+                                    break;
+                                case 43:
+                                    CountNAVTariff[i] = json[i][j];
+                                    row["CountNAVTariff"] = json[i][j];
                                     break;
                             }
                         }
@@ -743,7 +758,7 @@ define([
             policiesToSave[policy]["Link"] = data.Link;
             policiesToSave[policy]["LinkPdf"] = data.LinkPdf;
             policiesToSave[policy]["Exemptions"] = data.Exemptions;
-            policiesToSave[policy]["LocalCondition"] = data.LocalCondition;
+            policiesToSave[policy]["MinAVTariffValue"] = data.MinAVTariffValue;
             policiesToSave[policy]["MasterIndex"] = data.MasterIndex;
             policiesToSave[policy]["MeasureDescription"] = data.MeasureDescription;
             policiesToSave[policy]["Notes"] = data.Notes;
@@ -792,7 +807,7 @@ define([
                 policiesToSave[policy]["Link"] = data.Link;
                 policiesToSave[policy]["LinkPdf"] = data.LinkPdf;
                 policiesToSave[policy]["Exemptions"] = data.Exemptions;
-                policiesToSave[policy]["LocalCondition"] = data.LocalCondition;
+                policiesToSave[policy]["MinAVTariffValue"] = data.MinAVTariffValue;
                 policiesToSave[policy]["MasterIndex"] = data.MasterIndex;
                 policiesToSave[policy]["MeasureDescription"] = data.MeasureDescription;
                 policiesToSave[policy]["Notes"] = data.Notes;

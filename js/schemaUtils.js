@@ -317,13 +317,40 @@ define([
                 delete schema.properties.notes;
             }
 
-            if ((options.properties.localCondition != null) && (typeof options.properties.localCondition != "undefined")) {//OK
-                if ((options.properties.localCondition.source!=null)&&(typeof options.properties.localCondition.source!="undefined")&&(options.properties.localCondition.source.datafields!=null)&&(typeof options.properties.localCondition.source.datafields!="undefined")&&(options.properties.localCondition.source.datafields.defaultCode!= null)&&(typeof options.properties.localCondition.source.datafields.defaultCode!="undefined")) {
-                    schema.properties.localCondition.properties.list.default = options.properties.localCondition.source.datafields.defaultCode;
+            if ((options.properties.MinAVTariffValue != null) && (typeof options.properties.MinAVTariffValue != "undefined")) {
+                if ((options.properties.MinAVTariffValue.value!=null)&&(typeof options.properties.MinAVTariffValue.value!="undefined")&&(options.properties.MinAVTariffValue.value.default!= null)&&(typeof options.properties.MinAVTariffValue.value.default!="undefined")) {
+                    schema.properties.MinAVTariffValue.default = options.properties.MinAVTariffValue.value.default;
                 }
             }
             else {
-                delete schema.properties.localCondition;
+                delete schema.properties.MinAVTariffValue;
+            }
+
+            if ((options.properties.MaxAVTariffValue != null) && (typeof options.properties.MaxAVTariffValue != "undefined")) {
+                if ((options.properties.MaxAVTariffValue.value!=null)&&(typeof options.properties.MaxAVTariffValue.value!="undefined")&&(options.properties.MaxAVTariffValue.value.default!= null)&&(typeof options.properties.MaxAVTariffValue.value.default!="undefined")) {
+                    schema.properties.MaxAVTariffValue.default = options.properties.MaxAVTariffValue.value.default;
+                }
+            }
+            else {
+                delete schema.properties.MaxAVTariffValue;
+            }
+
+            if ((options.properties.CountAVTariff != null) && (typeof options.properties.CountAVTariff != "undefined")) {
+                if ((options.properties.CountAVTariff.value!=null)&&(typeof options.properties.CountAVTariff.value!="undefined")&&(options.properties.CountAVTariff.value.default!= null)&&(typeof options.properties.CountAVTariff.value.default!="undefined")) {
+                    schema.properties.CountAVTariff.default = options.properties.CountAVTariff.value.default;
+                }
+            }
+            else {
+                delete schema.properties.CountAVTariff;
+            }
+
+            if ((options.properties.CountNAVTariff != null) && (typeof options.properties.CountNAVTariff != "undefined")) {
+                if ((options.properties.CountNAVTariff.value!=null)&&(typeof options.properties.CountNAVTariff.value!="undefined")&&(options.properties.CountNAVTariff.value.default!= null)&&(typeof options.properties.CountNAVTariff.value.default!="undefined")) {
+                    schema.properties.CountNAVTariff.default = options.properties.CountNAVTariff.value.default;
+                }
+            }
+            else {
+                delete schema.properties.CountNAVTariff;
             }
 
             if ((options.properties.titleOfNotice != null) && (typeof options.properties.titleOfNotice != "undefined")) {

@@ -350,9 +350,9 @@ define([
                         path = dataEntryVariables.options.secondGenerationSpecific_path;
                         field = self.render.editor.getEditor(path);
                         self.disableNameInOpenList(field, dataEntryVariables);
-                        path = dataEntryVariables.options.localCondition_path;
-                        field = self.render.editor.getEditor(path);
-                        self.disableNameInOpenList(field, dataEntryVariables);
+                        //path = dataEntryVariables.options.MinAVTariffValue_path;
+                        //field = self.render.editor.getEditor(path);
+                        //self.disableNameInOpenList(field, dataEntryVariables);
                         //Value and Value Text based on valueValueText selection
                         path = dataEntryVariables.options.valueValueText_path;
                         var valueValueTextField = self.render.editor.getEditor(path);
@@ -377,9 +377,9 @@ define([
                             path = dataEntryVariables.options.secondGenerationSpecific_path;
                             field = self.render.editor.getEditor(path);
                             self.disableNameInOpenList(field, dataEntryVariables);
-                            path = dataEntryVariables.options.localCondition_path;
-                            field = self.render.editor.getEditor(path);
-                            self.disableNameInOpenList(field, dataEntryVariables);
+                            //path = dataEntryVariables.options.MinAVTariffValue_path;
+                            //field = self.render.editor.getEditor(path);
+                            //self.disableNameInOpenList(field, dataEntryVariables);
                             //self.render.editor.setValue({
                             //    linkPdfUpload: "/home/barbara/Documenti/"
                             //});
@@ -638,15 +638,19 @@ define([
                 policyTableData.SecondGenerationSpecific = data.secondGenerationSpecific.list;
             }
         }
-        policyTableData.LocalCondition = "";
-        if((data.localCondition!=null)&&(typeof data.localCondition!='undefined')){
-            if(data.localCondition.list==o.dataEntryVariables.options.OTHER){
-                policyTableData.LocalCondition = data.localCondition.name;
-            }
-            else{
-                policyTableData.LocalCondition = data.localCondition.list;
-            }
-        }
+        //policyTableData.MinAVTariffValue = "";
+        //if((data.MinAVTariffValue!=null)&&(typeof data.MinAVTariffValue!='undefined')){
+        //    if(data.MinAVTariffValue.list==o.dataEntryVariables.options.OTHER){
+        //        policyTableData.MinAVTariffValue = data.MinAVTariffValue.name;
+        //    }
+        //    else{
+        //        policyTableData.MinAVTariffValue = data.MinAVTariffValue.list;
+        //    }
+        //}
+        policyTableData.MinAVTariffValue = data.MinAVTariffValue;
+        policyTableData.MaxAVTariffValue = data.MaxAVTariffValue;
+        policyTableData.CountAVTariff = data.CountAVTariff;
+        policyTableData.CountNAVTariff = data.CountNAVTariff;
         policyTableData.StartDate = data.startDate;
         policyTableData.EndDate = data.endDate;
 

@@ -263,34 +263,29 @@ define(['i18n!nls/dataEntry'], function(DataEntry) {
                 description:  DataEntry['notesDescription'],
                 default: ""
             },
-            localCondition: {
-                type: "object",
-                title: DataEntry['localCondition'],
-                "options": {
-                    disable_collapse: true
-                },
-                properties: {
-                    list: {
-                        type: "string",
-                        format: "select",
-                        title: "List",
-                        description:  DataEntry['localConditionDescription'],
-                        uniqueItems: true,
-                        enum: [],
-                        options: {
-                            "enum_titles": []
-                        },
-                        default: ""
-                    },
-                    name: {
-                        type: "string",
-                        title: DataEntry['localConditionAdditionalName'],
-                        options: {
-                            disabled: true
-                        },
-                        default: ""
-                    }
-                }
+            MinAVTariffValue: {
+                type: "string",
+                title: DataEntry['MinAVTariffValue'],
+                description:  DataEntry['MinAVTariffValueDescription'],
+                default: ""
+            },
+            MaxAVTariffValue: {
+                type: "string",
+                title: DataEntry['MaxAVTariffValue'],
+                description:  DataEntry['MaxAVTariffValueDescription'],
+                default: ""
+            },
+            CountAVTariff: {
+                type: "string",
+                title: DataEntry['CountAVTariff'],
+                description:  DataEntry['CountAVTariffDescription'],
+                default: ""
+            },
+            CountNAVTariff: {
+                type: "string",
+                title: DataEntry['CountNAVTariff'],
+                description:  DataEntry['CountNAVTariffDescription'],
+                default: ""
             },
             titleOfNotice: {
                 type: "string",

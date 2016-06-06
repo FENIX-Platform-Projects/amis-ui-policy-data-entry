@@ -1,0 +1,81 @@
+/* FENIX DATA EDITOR CSS - TO BE REVIEWED */
+/* Fenix - Modular Editor Component */
+/* Dropdown */
+#fx-editor-navbar .dropdown-menu .col-sm-12 {
+    margin-bottom: 7px; }
+
+/* Panel Title */
+/* Form */
+.fx-editor-modular-form-wrapper .panel {
+    background-color: transparent;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    -ms-border-radius: 0;
+    border-radius: 0;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: white;
+    border-color: #d8d8d8;
+    border-image: none;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    -ms-border-radius: 0;
+    border-radius: 0;
+    border-style: solid;
+    border-width: 1px 1px 2px;
+    padding: 0px;
+    width: auto; }
+.fx-editor-modular-form-wrapper .panel .panel-heading {
+    background-color: transparent; }
+.fx-editor-modular-form-wrapper .panel .fx-panel-info {
+    margin-top: 10px; }
+
+.form-horizontal .form-group {
+    margin-left: 0;
+    margin-right: 0; }
+
+#fx-editor-form .form-horizontal .control-label {
+    text-align: left; }
+
+#fx-editor-form {
+    /* Icon Position */ }
+#fx-editor-form legend {
+    padding: 5px 0 0 10px;
+    margin-bottom: 0px;
+    background-color: #eeeeff; }
+#fx-editor-form fieldset {
+    background-color: #eeeeff; }
+#fx-editor-form .fnx-fieldset-2 {
+    background-color: #f3efe0; }
+#fx-editor-form .fnx-fieldset-2 legend {
+    background-color: #f3efe0; }
+#fx-editor-form .fnx-fieldset-2 .form-group {
+    padding-left: 20px; }
+#fx-editor-form .fnx-fieldset-2 .fx-fieldset-subtitle {
+    padding-left: 16px; }
+#fx-editor-form .fnx-fieldset-1 .form-group, #fx-editor-form .fnx-fieldset-2 .form-group {
+    margin-bottom: 0;
+    padding-bottom: 20px; }
+#fx-editor-form .fx-panel-info {
+    float: right;
+    margin: 0; }
+
+/* Icon Position */
+#fx-editor-form .fx-panel-required, #fx-editor-form .fx-panel-ok, #fx-editor-form .fx-panel-remove, #fx-editor-form .fx-panel-refresh {
+    float: none;
+    margin: 0; }
+
+/* Adjust feedback icon position */
+#fx-editor-form .form-control-feedback {
+    top: 7px;
+    right: -15px; }
+
+/* tags input picker */
+.bootstrap-tagsinput {
+    /** problem in IE, placeholder is cut
+     font-size: 11px;  **/ }

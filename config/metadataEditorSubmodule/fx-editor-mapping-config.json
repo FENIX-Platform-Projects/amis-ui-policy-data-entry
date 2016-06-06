@@ -1,0 +1,106 @@
+{
+  "obj-path-mapping":
+  {
+    "OJCodeList": {
+      "path": "codes",
+      "system": {
+        "path": "idCodeList"
+      },
+      "version": {
+        "path": "version"
+      },
+      "code": {
+        "path" : "code"
+      }
+    }
+  },
+  "path-mapping": [
+    {
+      "entity": "meIdentification",
+      "path": "root",
+      "fields": {
+        "contacts[0]": {
+          "path" : "contacts"
+        },
+        "responsibleParty": {
+          "pathOrig" : "contacts",
+          "path" : "contacts[0]"
+        },
+        "contactInfo": {
+          "pathOrig" : "contacts.contactInfo",
+          "path" : "contacts[0].contactInfo"
+
+        }
+      }
+    },
+    {
+      "entity": "sePrimaryDataCollection",
+      "path": "meStatisticalProcessing.seDataSource.sePrimaryDataCollection",
+      "fields": {
+        "responsibleParty": {
+          "path" : "dataCollector"
+        },
+        "contactInfo": {
+          "path" : "dataCollector.contactInfo"
+        }
+      }
+    },
+    {
+      "entity": "seSecondaryDataCollection",
+      "path": "meStatisticalProcessing.seDataSource.seSecondaryDataCollection"
+    },
+    {
+      "entity": "meDocuments",
+      "fields": {
+        "citationDoc": {
+          "path" : "document"
+        },
+        "responsiblePartyDoc": {
+          "path" : "document.documentContact"
+        },
+        "contactInfoDoc": {
+          "path" : "document.documentContact.contactInfo"
+        }
+      }
+    },
+    {
+      "entity": "seGridSpatialRepresentation",
+      "fields": {
+        "axis": {
+          "path" : "seGridSpatialRepresentation.axisDimensionProperties"
+        },
+        "resolution": {
+          "path" : "seGridSpatialRepresentation.axisDimensionProperties.resolution"
+        }
+      }
+    },
+    {
+      "entity": "meReferenceSystem",
+      "fields": {
+        "responsibleParty": {
+          "path" : "referenceSystemAuthority"
+        },
+        "contactInfo": {
+          "path" : "referenceSystemAuthority.contactInfo"
+        }
+      }
+    },
+    {
+      "entity": "seProjectionParameters",
+      "fields": {
+        "falseEastingNorthingUnits": {
+          "path" : "falseEastingNorthingUnits"
+        }
+      }
+    },
+    {
+      "entity": "seEllipsoidParameters",
+      "fields": {
+        "axisUnits": {
+          "path" : "axisUnits"
+        }
+      }
+    }
+
+  ]
+}

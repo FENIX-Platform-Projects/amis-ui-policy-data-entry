@@ -1,0 +1,170 @@
+{
+  "entity-rules": [
+    {
+      "entity": "policyDataEntryEditPolicy",
+      "type": "required",
+      "fields": {
+        "link": {
+          "type": "required",
+          "validators": {
+            "notEmpty": {
+              "message": {
+                "EN": "Please enter a link"
+              }
+            }
+          }
+        },
+        "linkPdf": {
+          "type": "required",
+          "validators": {
+            "notEmpty": {
+              "message": {
+                "EN": "Please enter a link(pdf)"
+              }
+            }
+          }
+        },
+        "policyElement": {
+          "type": "required",
+          "validators": {
+            "notEmpty": {
+              "message": {
+                "EN": "Please select a policy element"
+              }
+            }
+          }
+        },
+        "startDate": {
+          "type": "required",
+          "validators": {
+            "notEmpty": {
+              "message": {
+                "EN": "Please select a start date"
+              }
+            }
+          }
+        },
+        "endDate": {
+          "type": "required",
+          "validators": {
+            "notEmpty": {
+              "message": {
+                "EN": "Please select an end date"
+              }
+            }
+          }
+        },
+        "unit": {
+          "type": "required",
+          "validators": {
+            "notEmpty": {
+              "message": {
+                "EN": "Please select a unit"
+              }
+            }
+          }
+        },
+        "value": {
+          "type": "required",
+          "validators": {
+            "notEmpty": {
+              "message": {
+                "EN": "Please enter a value"
+              }
+            }
+          }
+        },
+        "valueText": {
+          "type": "required",
+          "validators": {
+            "notEmpty": {
+              "message": {
+                "EN": "Please enter a value text"
+              }
+            }
+          }
+        },
+        "source": {
+          "type": "required",
+          "validators": {
+            "notEmpty": {
+              "message": {
+                "EN": "Please select a source"
+              }
+            }
+          }
+        },
+        "exemptions": {
+          "type": "required",
+          "validators": {
+            "notEmpty": {
+              "message": {
+                "EN": "Please enter an exemptions"
+              }
+            }
+          }
+        },
+        "dateOfPublication": {
+          "type": "required",
+          "validators": {
+            "notEmpty": {
+              "message": {
+                "EN": "Please enter a date of publication"
+              }
+            }
+          }
+        },
+        "taxRateBenchmark": {
+          "type": "required",
+          "validators": {
+            "notEmpty": {
+              "message": {
+                "EN": "Please insert a tax rate benchmark"
+              }
+            }
+          }
+        },
+        "benchmarkLink": {
+          "type": "required",
+          "validators": {
+            "notEmpty": {
+              "message": {
+                "EN": "Please insert a benchmark link"
+              }
+            }
+          }
+        },
+        "benchmarkLinkPdf": {
+          "type": "required",
+          "validators": {
+            "notEmpty": {
+              "message": {
+                "EN": "Please insert a benchmark link(pdf)"
+              }
+            }
+          }
+        },
+        "secondGenerationSpecific": {
+          "type": "required",
+          "validators": {
+            "notEmpty": {
+              "message": {
+                "EN": "Please select a second generation specific a link"
+              }
+            }
+          }
+        },
+        "notes": {
+          "type": "required",
+          "validators": {
+            "notEmpty": {
+              "message": {
+                "EN": "Please enter notes"
+              }
+            }
+          }
+        }
+      }
+    }
+  ]
+}

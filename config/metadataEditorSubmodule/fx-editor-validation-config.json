@@ -1,0 +1,1665 @@
+{
+  "entity-rules": [
+    {
+      "entity": "meIdentification",
+      "type": "required",
+      "fields": {
+        "language": {
+          "type": "required",
+          "validators": {
+            "notEmpty": {
+              "message": {
+                "EN": "Please select a language"
+              }
+            }
+          }
+        },
+        "title": {
+          "type": "required",
+          "validators": {
+            "notEmpty": {
+              "message": {
+                "EN": "Please enter a title"
+              }
+            }
+          }
+        },
+        "creationDate": {
+          "type": "required",
+          "validators": {
+            "notEmpty": {
+              "message": {
+                "EN": "Please enter the creation date"
+              }
+            }
+          }
+        },
+        "characterSet": {
+          "type": "required",
+          "validators": {
+            "notEmpty": {
+              "message": {
+                "EN": "Please select a character-set"
+              }
+            }
+          }
+        },
+        "metadataStandardName": {
+          "type": "required",
+          "validators": {
+            "notEmpty": {
+              "message": {
+                "EN": "Please enter the used metadata standards"
+              }
+            }
+          }
+        },
+        "metadataLanguage": {
+          "type": "required",
+          "validators": {
+            "notEmpty": {
+              "message": {
+                "EN": "Please select the language(s) used for the metadata"
+              }
+            }
+          }
+        },
+        "contacts": {
+          "type": "required"
+        },
+        "organization": {
+          "type": "required",
+          "validators": {
+            "notEmpty": {
+              "message": {
+                "EN": "Please enter the name of the organization"
+              }
+            }
+          }
+        },
+        "role": {
+          "type": "conditional",
+          "validators": {
+            "callback": {
+              "message": {
+                "EN": "Specify (below) is conditional to a role being selected"
+              },
+              "callback": "function(value, validator, $field) {return showSpecifyInputBox(value, validator, $field);}"
+            }
+          }
+        },
+        "specify": {
+          "type": "conditional",
+          "validators": {
+            "stringLength": {
+              "min": 2,
+              "message": {
+                "EN": "Seems a little short, please specify the role"
+              }
+            },
+            "callback": {
+              "message": {
+                "EN": "This field can be filled if a role has been selected"
+              },
+              "callback": "function(value, validator, $field) {return showSpecifyInputBox(value, validator, $field);}"
+            }
+          }
+        },
+        "phone": {
+          "type": "required-conditional",
+          "validators": {
+            "digits": {
+              "message": {
+                "EN": "Please enter a phone number using digits only"
+              }
+            },
+            "callback": {
+              "message": {
+                "EN": "Please provide either the phone, address or email"
+              },
+              "callback": "function(value, validator, $field) {return checkAtLeastOnePhoneEmailAddress(value, validator, $field);}"
+            }
+          }
+        },
+        "emailAddress": {
+          "type": "required-conditional",
+          "validators": {
+            "emailAddress": {
+              "message": {
+                "EN": "Please enter a valid email address"
+              }
+            },
+            "callback": {
+              "message": {
+                "EN": "Please provide either the phone, address or email"
+              },
+              "callback": "function(value, validator, $field) {return checkAtLeastOnePhoneEmailAddress(value, validator, $field);}"
+            }
+          }
+        },
+        "address": {
+          "type": "required-conditional",
+          "validators": {
+            "stringLength": {
+              "min": 2,
+              "message": {
+                "EN": "Seems a little short, please specify the address"
+              }
+            },
+            "callback": {
+              "message": {
+                "EN": "Please provide either the phone, address or email"
+              },
+              "callback": "function(value, validator, $field) {return checkAtLeastOnePhoneEmailAddress(value, validator, $field);}"
+            }
+          }
+        }
+      }
+    },
+    {
+      "entity": "meContent",
+      "type": "required",
+      "fields": {
+        "resourceRepresentationType": {
+          "type": "required",
+          "validators": {
+            "notEmpty": {
+              "message": {
+                "EN": "Please select the type of resource"
+              }
+            }
+          }
+        },
+        "keywords": {
+          "type": "required",
+          "validators": {
+            "notEmpty": {
+              "message": {
+                "EN": "Please type a keyword, then press Enter"
+              }
+            }
+          }
+        },
+        "description": {
+          "type": "required",
+          "validators": {
+            "notEmpty": {
+              "message": {
+                "EN": "Please provide a description"
+              }
+            }
+          }
+        }
+      },
+      "modules": [
+        {
+          "module": "seReferencePopulation",
+          "fields": {
+            "statisticalPopulation": {
+              "type": "required",
+              "validators": {
+                "notEmpty": {
+                  "message": {
+                    "EN": "Please provide the statistical concepts/definitions"
+                  }
+                }
+              }
+            },
+            "referencePeriod": {
+              "type": "required",
+              "validators": {
+                "notEmpty": {
+                  "message": {
+                    "EN": "Please select the reference period"
+                  }
+                }
+              }
+            },
+            "referenceArea": {
+              "type": "required",
+              "validators": {
+                "notEmpty": {
+                  "message": {
+                    "EN": "Please select the reference area"
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "module": "seCoverage",
+          "fields": {
+            "coverageSectors": {
+              "type": "required",
+              "validators": {
+                "notEmpty": {
+                  "message": {
+                    "EN": "Please select at least one main sector"
+                  }
+                }
+              }
+            },
+            "coverageTime": {
+              "type": "required",
+              "validators": {
+                "notEmpty": {
+                  "message": {
+                    "EN": "Please provide the coverage period"
+                  }
+                }
+              }
+            },
+            "coverageGeographic": {
+              "type": "required",
+              "validators": {
+                "notEmpty": {
+                  "message": {
+                    "EN": "Please select the geographic extent"
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "module": "seCodeList",
+          "fields": {
+            "numberOfLevels": {
+              "type": "required",
+              "validators": {
+                "integer": {
+                  "message": {
+                    "EN": "Please enter an integer value"
+                  }
+                },
+                "notEmpty": {
+                  "message": {
+                    "EN": "Please provide the number of levels"
+                  }
+                }
+              }
+            },
+            "typeOfCodeList": {
+              "type": "required",
+              "validators": {
+                "notEmpty": {
+                  "message": {
+                    "EN": "Please select a codelist type"
+                  }
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "entity": "meStatisticalProcessing",
+      "modules": [
+        {
+          "module": "sePrimaryDataCollection",
+          "fields": {
+            "organization": {
+              "type": "required-conditional",
+              "validators": {
+                "callback": {
+                  "message": {
+                    "EN": "Please provide either the organization"
+                  },
+                  "callback": "function(value, validator, $field) {return checkAllResponsiblePartyFields(value, validator, $field);}"
+                }
+              }
+            },
+            "organizationUnit": {
+              "type": "optional",
+              "validators": {
+                "callback": {
+                  "message": {
+                    "EN": "Please also complete any missing required fields ('organization', 'contact information')"
+                  },
+                  "callback": "function(value, validator, $field) {return checkAllResponsiblePartyFields(value, validator, $field);}"
+                }
+              }
+            },
+            "pointOfContact": {
+              "type": "optional",
+              "validators": {
+                "callback": {
+                  "message": {
+                    "EN": "Please also complete any missing required fields ('organization', 'contact information')"
+                  },
+                  "callback": "function(value, validator, $field) {return checkAllResponsiblePartyFields(value, validator, $field);}"
+                }
+              }
+            },
+            "position": {
+              "type": "optional",
+              "validators": {
+                "callback": {
+                  "message": {
+                    "EN": "Please also complete any missing required fields ('organization', 'contact information')"
+                  },
+                  "callback": "function(value, validator, $field) {return checkAllResponsiblePartyFields(value, validator, $field);}"
+                }
+              }
+            },
+            "hoursOfService": {
+              "type": "optional",
+              "validators": {
+                "callback": {
+                  "message": {
+                    "EN": "Please also complete any missing required fields ('organization', 'phone/email/address')"
+                  },
+                  "callback": "function(value, validator, $field) {return checkAllResponsiblePartyFields(value, validator, $field);}"
+                }
+              }
+            },
+            "contactInstruction": {
+              "type": "optional",
+              "validators": {
+                "callback": {
+                  "message": {
+                    "EN": "Please also complete any missing required fields ('organization', 'phone/email/address')"
+                  },
+                  "callback": "function(value, validator, $field) {return checkAllResponsiblePartyFields(value, validator, $field);}"
+                }
+              }
+            },
+            "role": {
+              "type": "conditional",
+              "validators": {
+                "callback": {
+                  "message": {
+                    "EN": "Specify (below) is conditional to a role being selected"
+                  },
+                  "callback": "function(value, validator, $field) {return showSpecifyInputBox(value, validator, $field);}"
+                }
+              }
+            },
+            "specify": {
+              "type": "conditional",
+              "validators": {
+                "stringLength": {
+                  "min": 2,
+                  "message": {
+                    "EN": "Seems a little short, please specify the role"
+                  }
+                },
+                "callback": {
+                  "message": {
+                    "EN": "This field can be filled if a role has been selected"
+                  },
+                  "callback": "function(value, validator, $field) {return showSpecifyInputBox(value, validator, $field);}"
+                }
+              }
+            },
+            "phone": {
+              "type": "required-conditional",
+              "validators": {
+                "digits": {
+                  "message": {
+                    "EN": "Please enter a phone number using digits only"
+                  }
+                },
+                "callback": {
+                  "message": {
+                    "EN": "Please provide either the phone, address or email"
+                  },
+                  "callback": "function(value, validator, $field) {return checkAllResponsiblePartyFields(value, validator, $field);}"
+                }
+              }
+            },
+            "emailAddress": {
+              "type": "required-conditional",
+              "validators": {
+                "emailAddress": {
+                  "message": {
+                    "EN": "Please enter a valid email address"
+                  }
+                },
+                "callback": {
+                  "message": {
+                    "EN": "Please provide either the phone, address or email"
+                  },
+                  "callback": "function(value, validator, $field) {return checkAllResponsiblePartyFields(value, validator, $field);}"
+                }
+              }
+            },
+            "address": {
+              "type": "required-conditional",
+              "validators": {
+                "stringLength": {
+                  "min": 2,
+                  "message": {
+                    "EN": "Seems a little short, please specify the address"
+                  }
+                },
+                "callback": {
+                  "message": {
+                    "EN": "Please provide either the phone, address or email"
+                  },
+                  "callback": "function(value, validator, $field) {return checkAllResponsiblePartyFields(value, validator, $field);}"
+                }
+              }
+            },
+            "dataCollection": {
+              "type": "required",
+              "validators": {
+                "notEmpty": {
+                  "message": {
+                    "EN": "Please enter the data collection"
+                  }
+                }
+              }
+            },
+            "collectionPeriodicity": {
+              "type": "required",
+              "validators": {
+                "notEmpty": {
+                  "message": {
+                    "EN": "Please select the collection periodicity"
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "module": "seSecondaryDataCollection",
+          "fields": {
+            "originOfCollectedData": {
+              "type": "conditional",
+              "validators": {
+                "callback": {
+                  "message": {
+                    "EN": "Please specify the organization below"
+                  },
+                  "callback": "function(value, validator, $field) {return showOrganizationInputBox(value, validator, $field);}"
+                }
+              }
+            },
+            "organization": {
+              "type": "conditional",
+              "validators": {
+                "stringLength": {
+                  "min": 2,
+                  "message": {
+                    "EN": "Seems a little short, please specify the organization"
+                  }
+                },
+                "callback": {
+                  "message": {
+                    "EN": "Please specify the organization"
+                  },
+                  "callback": "function(value, validator, $field) {return showOrganizationInputBox(value, validator, $field);}"
+                }
+              }
+            },
+            "dataCollection": {
+              "type": "required",
+              "validators": {
+                "notEmpty": {
+                  "message": {
+                    "EN": "Please provide the data collection details"
+                  }
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "entity": "meDataQuality",
+      "modules": [
+        {
+          "module": "seRelevance",
+          "fields": {
+            "completenessPercentage": {
+              "validators": {
+                "between": {
+                  "min": 0,
+                  "max": 100,
+                  "message": {
+                    "EN": "Please enter a percentage between 0 and 100"
+                  }
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "entity": "meAccessibility",
+      "type": "required",
+      "modules": [
+        {
+          "module": "seClarity",
+          "fields": {
+            "metadataCompletenessRate": {
+              "validators": {
+                "integer": {
+                  "message": {
+                    "EN": "Please enter an integer value"
+                  }
+                },
+                "between": {
+                  "min": 0,
+                  "max": 100,
+                  "message": {
+                    "EN": "Please enter a percentage between 0 and 100"
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "module": "seDataDissemination",
+          "modules": [
+            {
+              "module": "seDistribution",
+              "fields": {
+                "onlineResource": {
+                  "type": "conditional",
+                  "find": {
+                    "values": [
+                      "confidentiality.confidentialityStatus"
+                    ]
+                  },
+                  "validators": {
+                    "uri": {
+                      "message": {
+                        "EN": "The website address is not valid"
+                      }
+                    },
+                    "callback": {
+                      "message": {
+                        "EN": "This resource is set as 'Restricted' (see Confidentiality field: 'status of confidentiality'), so please clear this field"
+                      },
+                      "callback": "function(value, validator, $field) {return showDistributionFields(value, validator, $field);}"
+                    }
+                  }
+                },
+                "disseminationFormat": {
+                  "type": "conditional",
+                  "find": {
+                    "values": [
+                      "confidentiality.confidentialityStatus"
+                    ]
+                  },
+                  "callback": {
+                    "message": {
+                      "EN": "This resource is set as 'Restricted' (see Confidentiality field: 'status of confidentiality'), so clear this field"
+                    },
+                    "callback": "function(value, validator, $field) {return showDistributionFields(value, validator, $field);}"
+                  }
+                }
+              }
+            },
+            {
+              "module": "seConfidentiality",
+              "fields": {
+                "confidentialityStatus": {
+                  "type": "required",
+                  "find": {
+                    "values": [
+                      "distribution.onlineResource",
+                      "distribution.disseminationFormats"
+                    ]
+                  },
+                  "validators": {
+                    "notEmpty": {
+                      "message": {
+                        "EN": "Please select the status of confidentiality"
+                      }
+                    },
+                    "callback": {
+                      "message": {
+                        "EN": "Please clear the filled in field(s) within the 'Distribution' section to reflect the 'Restricted' status"
+                      },
+                      "callback": "function(value, validator, $field) {return showDistributionFields(value, validator, $field);}"
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity": "meDocuments",
+      "fields": {
+        "title": {
+          "type": "required",
+          "validators": {
+            "notEmpty": {
+              "message": {
+                "EN": "Please enter the title"
+              }
+            }
+          }
+        },
+        "organization": {
+          "type": "required-conditional",
+          "validators": {
+            "callback": {
+              "message": {
+                "EN": "Please provide either the contact information"
+              },
+              "callback": "function(value, validator, $field) {return checkAllResponsiblePartyFields(value, validator, $field);}"
+            }
+          }
+        },
+        "organizationUnit": {
+          "type": "optional",
+          "validators": {
+            "callback": {
+              "message": {
+                "EN": "Please also complete any missing required fields ('organization', 'contact information')"
+              },
+              "callback": "function(value, validator, $field) {return checkAllResponsiblePartyFields(value, validator, $field);}"
+            }
+          }
+        },
+        "pointOfContact": {
+          "type": "optional",
+          "validators": {
+            "callback": {
+              "message": {
+                "EN": "Please also complete any missing required fields ('organization', 'contact information')"
+              },
+              "callback": "function(value, validator, $field) {return checkAllResponsiblePartyFields(value, validator, $field);}"
+            }
+          }
+        },
+        "position": {
+          "type": "optional",
+          "validators": {
+            "callback": {
+              "message": {
+                "EN": "Please also complete any missing required fields ('organization', 'contact information')"
+              },
+              "callback": "function(value, validator, $field) {return checkAllResponsiblePartyFields(value, validator, $field);}"
+            }
+          }
+        },
+        "hoursOfService": {
+          "type": "optional",
+          "validators": {
+            "callback": {
+              "message": {
+                "EN": "Please also complete any missing required fields ('organization', 'phone/email/address')"
+              },
+              "callback": "function(value, validator, $field) {return checkAllResponsiblePartyFields(value, validator, $field);}"
+            }
+          }
+        },
+        "contactInstruction": {
+          "type": "optional",
+          "validators": {
+            "callback": {
+              "message": {
+                "EN": "Please also complete any missing required fields ('organization', 'phone/email/address')"
+              },
+              "callback": "function(value, validator, $field) {return checkAllResponsiblePartyFields(value, validator, $field);}"
+            }
+          }
+        },
+        "role": {
+          "type": "conditional",
+          "validators": {
+            "callback": {
+              "message": {
+                "EN": "Specify (below) is conditional to a role being selected"
+              },
+              "callback": "function(value, validator, $field) {return showSpecifyInputBox(value, validator, $field);}"
+            }
+          }
+        },
+        "specify": {
+          "type": "conditional",
+          "validators": {
+            "stringLength": {
+              "min": 2,
+              "message": {
+                "EN": "Seems a little short, please specify the role"
+              }
+            },
+            "callback": {
+              "message": {
+                "EN": "This field can be filled if a role has been selected"
+              },
+              "callback": "function(value, validator, $field) {return showSpecifyInputBox(value, validator, $field);}"
+            }
+          }
+        },
+        "phone": {
+          "type": "required-conditional",
+          "validators": {
+            "digits": {
+              "message": {
+                "EN": "Please enter a phone number using digits only"
+              }
+            },
+            "callback": {
+              "message": {
+                "EN": "Please provide either the phone, address or email"
+              },
+              "callback": "function(value, validator, $field) {return checkAllResponsiblePartyFields(value, validator, $field);}"
+            }
+          }
+        },
+        "emailAddress": {
+          "type": "required-conditional",
+          "validators": {
+            "emailAddress": {
+              "message": {
+                "EN": "Please enter a valid email address"
+              }
+            },
+            "callback": {
+              "message": {
+                "EN": "Please provide either the phone, address or email"
+              },
+              "callback": "function(value, validator, $field) {return checkAllResponsiblePartyFields(value, validator, $field);}"
+            }
+          }
+        },
+        "address": {
+          "type": "required-conditional",
+          "validators": {
+            "stringLength": {
+              "min": 2,
+              "message": {
+                "EN": "Seems a little short, please specify the address"
+              }
+            },
+            "callback": {
+              "message": {
+                "EN": "Please provide either the phone, address or email"
+              },
+              "callback": "function(value, validator, $field) {return checkAllResponsiblePartyFields(value, validator, $field);}"
+            }
+          }
+        }
+      }
+    },
+    {
+      "entity": "meSpatialRepresentation",
+      "type": "required",
+      "fields": {
+        "layerType": {
+          "type": "required",
+          "validators": {
+            "notEmpty": {
+              "message": {
+                "EN": "Please select a layer type"
+              }
+            }
+          }
+        }
+      },
+      "modules": [
+        {
+          "module": "seBoundingBox",
+          "fields": {
+            "xMin": {
+              "type": "required",
+              "validators": {
+                "notEmpty": {
+                  "message": {
+                    "EN": "Please enter the West bound longitude"
+                  }
+                },
+                "between": {
+                  "min": -180,
+                  "max": 180,
+                  "message": {
+                    "EN": "The longitude must be between -180.0 and 180.0"
+                  }
+                }
+              }
+            },
+            "xMax": {
+              "type": "required",
+              "validators": {
+                "notEmpty": {
+                  "message": {
+                    "EN": "Please enter the East bound longitude"
+                  }
+                },
+                "between": {
+                  "min": -180,
+                  "max": 180,
+                  "message": {
+                    "EN": "The longitude must be between -180.0 and 180.0"
+                  }
+                }
+              }
+            },
+            "yMin": {
+              "type": "required",
+              "validators": {
+                "notEmpty": {
+                  "message": {
+                    "EN": "Please enter the South bound latitude"
+                  }
+                },
+                "between": {
+                  "min": -90,
+                  "max": 90,
+                  "message": {
+                    "EN": "The latitude must be between -90.0 and 90.0"
+                  }
+                }
+              }
+            },
+            "yMax": {
+              "type": "required",
+              "validators": {
+                "notEmpty": {
+                  "message": {
+                    "EN": "Please enter the North bound latitude"
+                  }
+                },
+                "between": {
+                  "min": -90,
+                  "max": 90,
+                  "message": {
+                    "EN": "The latitude must be between -90.0 and 90.0"
+                  }
+                }
+              }
+            }
+          },
+          "modules": [
+            {
+              "module": "seGridSpatialRepresentation",
+              "fields": {
+                "numberOfDimensions": {
+                  "type": "required",
+                  "validators": {
+                    "notEmpty": {
+                      "message": {
+                        "EN": "Please enter the number of dimensions"
+                      }
+                    },
+                    "between": {
+                      "min": 0,
+                      "max": 100,
+                      "message": {
+                        "EN": "Please enter a positive integer number"
+                      }
+                    }
+                  }
+                },
+                "axisDimensionProperties": {
+                  "type": "required"
+                },
+                "axisName": {
+                  "type": "required",
+                  "validators": {
+                    "notEmpty": {
+                      "message": {
+                        "EN": "Please enter the name of the axis"
+                      }
+                    }
+                  }
+                },
+                "axisSize": {
+                  "type": "required",
+                  "validators": {
+                    "notEmpty": {
+                      "message": {
+                        "EN": "Please enter the number of elements along the axis"
+                      }
+                    },
+                    "between": {
+                      "min": 0,
+                      "max": 1000,
+                      "message": {
+                        "EN": "Please enter a positive integer number"
+                      }
+                    }
+                  }
+                },
+                "extent": {
+                  "type": "required",
+                  "validators": {
+                    "notEmpty": {
+                      "message": {
+                        "EN": "Please enter a description for the extent"
+                      }
+                    }
+                  }
+                },
+                "composedMU": {
+                  "type": "required",
+                  "validators": {
+                    "notEmpty": {
+                      "message": {
+                        "EN": "Please make a selection"
+                      }
+                    }
+                  }
+                },
+                "measurementSystem": {
+                  "type": "required",
+                  "validators": {
+                    "notEmpty": {
+                      "message": {
+                        "EN": "Please enter the measurement system"
+                      }
+                    }
+                  }
+                },
+                "nameMU": {
+                  "type": "required",
+                  "validators": {
+                    "notEmpty": {
+                      "message": {
+                        "EN": "Please enter the measurement unit name"
+                      }
+                    }
+                  }
+                },
+                "conversionToStandard": {
+                  "validators": {
+                    "numeric": {
+                      "message": {
+                        "EN": "Please enter a numeric value only"
+                      }
+                    }
+                  }
+                },
+                "cellGeometry": {
+                  "type": "required",
+                  "validators": {
+                    "notEmpty": {
+                      "message": {
+                        "EN": "Please select"
+                      }
+                    }
+                  }
+                },
+                "cellOfOrigin": {
+                  "type": "required",
+                  "validators": {
+                    "notEmpty": {
+                      "message": {
+                        "EN": "Please select"
+                      }
+                    }
+                  }
+                },
+                "xyPosition": {
+                  "type": "required",
+                  "validators": {
+                    "notEmpty": {
+                      "message": {
+                        "EN": "Please select"
+                      }
+                    }
+                  }
+                }
+              },
+              "modules": [
+                {
+                  "module": "seRelevance",
+                  "fields": {
+                    "completenessPercentage": {
+                      "validators": {
+                        "between": {
+                          "min": 0,
+                          "max": 100,
+                          "message": {
+                            "EN": "Please enter a percentage between 0 and 100"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "module": "seVectorSpatialRepresentation",
+              "fields": {
+                "topologyLevel": {
+                  "type": "required",
+                  "validators": {
+                    "notEmpty": {
+                      "message": {
+                        "EN": "Please select"
+                      }
+                    }
+                  }
+                },
+                "geometricObjects": {
+                  "type": "required",
+                  "validators": {
+                    "notEmpty": {
+                      "message": {
+                        "EN": "Please select"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity": "meReferenceSystem",
+      "type": "required",
+      "fields": {
+        "referenceSystemIdentifier": {
+          "type": "required",
+          "validators": {
+            "notEmpty": {
+              "message": {
+                "EN": "Please enter an identifier for the reference system"
+              }
+            }
+          }
+        },
+        "referenceSystemName": {
+          "type": "required",
+          "validators": {
+            "notEmpty": {
+              "message": {
+                "EN": "Please enter the extended name of reference system"
+              }
+            }
+          }
+        },
+        "organization": {
+          "type": "required",
+          "validators": {
+            "notEmpty": {
+              "message": {
+                "EN": "Please enter the name of the organization"
+              }
+            }
+          }
+        },
+        "role": {
+          "type": "conditional",
+          "validators": {
+            "callback": {
+              "message": {
+                "EN": "Specify (below) is conditional to a role being selected"
+              },
+              "callback": "function(value, validator, $field) {return showSpecifyInputBox(value, validator, $field);}"
+            }
+          }
+        },
+        "specify": {
+          "type": "conditional",
+          "validators": {
+            "stringLength": {
+              "min": 2,
+              "message": {
+                "EN": "Seems a little short, please specify the role"
+              }
+            },
+            "callback": {
+              "message": {
+                "EN": "This field can be filled if a role has been selected"
+              },
+              "callback": "function(value, validator, $field) {return showSpecifyInputBox(value, validator, $field);}"
+            }
+          }
+        },
+        "phone": {
+          "type": "required-conditional",
+          "validators": {
+            "digits": {
+              "message": {
+                "EN": "Please enter a phone number using digits only"
+              }
+            },
+            "callback": {
+              "message": {
+                "EN": "Please provide either the phone, address or email"
+              },
+              "callback": "function(value, validator, $field) {return checkAtLeastOnePhoneEmailAddress(value, validator, $field);}"
+            }
+          }
+        },
+        "emailAddress": {
+          "type": "required-conditional",
+          "validators": {
+            "emailAddress": {
+              "message": {
+                "EN": "Please enter a valid email address"
+              }
+            },
+            "callback": {
+              "message": {
+                "EN": "Please provide either the phone, address or email"
+              },
+              "callback": "function(value, validator, $field) {return checkAtLeastOnePhoneEmailAddress(value, validator, $field);}"
+            }
+          }
+        },
+        "address": {
+          "type": "required-conditional",
+          "validators": {
+            "stringLength": {
+              "min": 2,
+              "message": {
+                "EN": "Seems a little short, please specify the address"
+              }
+            },
+            "callback": {
+              "message": {
+                "EN": "Please provide either the phone, address or email"
+              },
+              "callback": "function(value, validator, $field) {return checkAtLeastOnePhoneEmailAddress(value, validator, $field);}"
+            }
+          }
+        }
+      },
+      "modules": [
+        {
+          "module": "seProjection",
+          "fields": {
+            "projection": {
+              "type": "required",
+              "validators": {
+                "notEmpty": {
+                  "message": {
+                    "EN": "Please select the projection"
+                  }
+                }
+              }
+            },
+            "projectionName": {
+              "type": "required",
+              "validators": {
+                "notEmpty": {
+                  "message": {
+                    "EN": "Please enter the name of the projection used"
+                  }
+                }
+              }
+            }
+          },
+          "modules": [
+            {
+              "module": "seProjectionParameters",
+              "fields": {
+                "zone": {
+                  "type": "required",
+                  "validators": {
+                    "integer": {
+                      "message": {
+                        "EN": "Please enter an integer value"
+                      }
+                    },
+                    "notEmpty": {
+                      "message": {
+                        "EN": "Please provide the zone"
+                      }
+                    }
+                  }
+                },
+                "standardParallel": {
+                  "type": "required",
+                  "validators": {
+                    "numeric": {
+                      "message": {
+                        "EN": "Please enter a numeric value only"
+                      }
+                    },
+                    "notEmpty": {
+                      "message": {
+                        "EN": "Please provide the standard parallel"
+                      }
+                    }
+                  }
+                },
+                "longitudeOfCentralMeridian": {
+                  "type": "required",
+                  "validators": {
+                    "numeric": {
+                      "message": {
+                        "EN": "Please enter a numeric value only"
+                      }
+                    },
+                    "notEmpty": {
+                      "message": {
+                        "EN": "Please provide the longitude of central meridian"
+                      }
+                    }
+                  }
+                },
+                "latitudeOfProjectionOrigin": {
+                  "type": "required",
+                  "validators": {
+                    "numeric": {
+                      "message": {
+                        "EN": "Please enter a numeric value only"
+                      }
+                    },
+                    "notEmpty": {
+                      "message": {
+                        "EN": "Please provide the latitude of projection origin"
+                      }
+                    }
+                  }
+                },
+                "falseEasting": {
+                  "type": "required",
+                  "validators": {
+                    "numeric": {
+                      "message": {
+                        "EN": "Please enter a numeric value only"
+                      }
+                    },
+                    "notEmpty": {
+                      "message": {
+                        "EN": "Please provide the false easting"
+                      }
+                    }
+                  }
+                },
+                "falseNorthing": {
+                  "type": "required",
+                  "validators": {
+                    "numeric": {
+                      "message": {
+                        "EN": "Please enter a numeric value only"
+                      }
+                    },
+                    "notEmpty": {
+                      "message": {
+                        "EN": "Please provide the false northing"
+                      }
+                    }
+                  }
+                },
+                "falseEastingNorthingUnits": {
+                  "type": "required"
+                },
+                "extent": {
+                  "type": "required",
+                  "validators": {
+                    "notEmpty": {
+                      "message": {
+                        "EN": "Please enter a description for the extent"
+                      }
+                    }
+                  }
+                },
+                "composedMU": {
+                  "type": "required",
+                  "validators": {
+                    "notEmpty": {
+                      "message": {
+                        "EN": "Please make a selection"
+                      }
+                    }
+                  }
+                },
+                "measurementSystem": {
+                  "type": "required",
+                  "validators": {
+                    "notEmpty": {
+                      "message": {
+                        "EN": "Please enter the measurement system"
+                      }
+                    }
+                  }
+                },
+                "nameMU": {
+                  "type": "required",
+                  "validators": {
+                    "notEmpty": {
+                      "message": {
+                        "EN": "Please enter the measurement unit name"
+                      }
+                    }
+                  }
+                },
+                "conversionToStandard": {
+                  "validators": {
+                    "numeric": {
+                      "message": {
+                        "EN": "Please enter a numeric value only"
+                      }
+                    }
+                  }
+                },
+                "scaleFactorAtEquator": {
+                  "type": "required",
+                  "validators": {
+                    "numeric": {
+                      "message": {
+                        "EN": "Please enter a numeric value only"
+                      }
+                    },
+                    "notEmpty": {
+                      "message": {
+                        "EN": "Please provide the scale factor at the equator"
+                      }
+                    }
+                  }
+                },
+                "heightOfProspectivePointAboveSurface": {
+                  "type": "required",
+                  "validators": {
+                    "numeric": {
+                      "message": {
+                        "EN": "Please enter a numeric value only"
+                      }
+                    },
+                    "notEmpty": {
+                      "message": {
+                        "EN": "Please provide the height of the view point above the Earth (m)"
+                      }
+                    }
+                  }
+                },
+                "longitudeOfProjectionCenter": {
+                  "type": "required",
+                  "validators": {
+                    "numeric": {
+                      "message": {
+                        "EN": "Please enter a numeric value only"
+                      }
+                    },
+                    "notEmpty": {
+                      "message": {
+                        "EN": "Please provide the longitude of projection centre"
+                      }
+                    }
+                  }
+                },
+                "latitudeOfProjectionCenter": {
+                  "type": "required",
+                  "validators": {
+                    "numeric": {
+                      "message": {
+                        "EN": "Please enter a numeric value only"
+                      }
+                    },
+                    "notEmpty": {
+                      "message": {
+                        "EN": "Please provide the latitude of projection centre"
+                      }
+                    }
+                  }
+                },
+                "scaleFactorAtCenterLine": {
+                  "type": "required",
+                  "validators": {
+                    "numeric": {
+                      "message": {
+                        "EN": "Please enter a numeric value only"
+                      }
+                    },
+                    "notEmpty": {
+                      "message": {
+                        "EN": "Please provide the scale factor at center line"
+                      }
+                    }
+                  }
+                },
+                "straightVerticalLongitudeFromPole": {
+                  "type": "required",
+                  "validators": {
+                    "numeric": {
+                      "message": {
+                        "EN": "Please enter a numeric value only"
+                      }
+                    },
+                    "notEmpty": {
+                      "message": {
+                        "EN": "Please provide the straight vertical longitude from pole"
+                      }
+                    }
+                  }
+                },
+                "scaleFactorAtProjectionOrigin": {
+                  "type": "required",
+                  "validators": {
+                    "numeric": {
+                      "message": {
+                        "EN": "Please enter a numeric value only"
+                      }
+                    },
+                    "notEmpty": {
+                      "message": {
+                        "EN": "Please provide the scale factor at projection origin"
+                      }
+                    }
+                  }
+                }
+              },
+              "modules": [
+                {
+                  "module": "seObliqueLineAzimuth",
+                  "fields": {
+                    "azimuthAngle": {
+                      "type": "required",
+                      "validators": {
+                        "numeric": {
+                          "message": {
+                            "EN": "Please enter a numeric value only"
+                          }
+                        },
+                        "notEmpty": {
+                          "message": {
+                            "EN": "Please provide the azimuth angle"
+                          }
+                        }
+                      }
+                    },
+                    "azimuthMeasurePointLongitude": {
+                      "type": "required",
+                      "validators": {
+                        "numeric": {
+                          "message": {
+                            "EN": "Please enter a numeric value only"
+                          }
+                        },
+                        "notEmpty": {
+                          "message": {
+                            "EN": "Please provide the longitude of the map projection origin"
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                {
+                  "module": "seObliqueLinePoint",
+                  "fields": {
+                    "obliqueLineLatitude": {
+                      "type": "required",
+                      "validators": {
+                        "numeric": {
+                          "message": {
+                            "EN": "Please enter a numeric value only"
+                          }
+                        },
+                        "notEmpty": {
+                          "message": {
+                            "EN": "Please provide the oblique line latitude"
+                          }
+                        }
+                      }
+                    },
+                    "obliqueLineLongitude": {
+                      "type": "required",
+                      "validators": {
+                        "numeric": {
+                          "message": {
+                            "EN": "Please enter a numeric value only"
+                          }
+                        },
+                        "notEmpty": {
+                          "message": {
+                            "EN": "Please provide the longitude of the oblique line longitude"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "module": "seEllipsoid",
+          "fields": {
+            "ellipsoid": {
+              "type": "required",
+              "validators": {
+                "notEmpty": {
+                  "message": {
+                    "EN": "Please select the ellipsoid"
+                  }
+                }
+              }
+            },
+            "ellipsoidName": {
+              "type": "required",
+              "validators": {
+                "notEmpty": {
+                  "message": {
+                    "EN": "Please enter the name of the ellipsoid used"
+                  }
+                }
+              }
+            }
+          },
+          "modules": [
+            {
+              "module": "seEllipsoidParameters",
+              "fields": {
+                "semiMajorAxis": {
+                  "type": "required",
+                  "validators": {
+                    "numeric": {
+                      "message": {
+                        "EN": "Please enter a numeric value only"
+                      }
+                    },
+                    "notEmpty": {
+                      "message": {
+                        "EN": "Please provide the semi major axis"
+                      }
+                    }
+                  }
+                },
+                "axisUnits": {
+                  "type": "required"
+                },
+                "extent": {
+                  "type": "required",
+                  "validators": {
+                    "notEmpty": {
+                      "message": {
+                        "EN": "Please enter a description for the extent"
+                      }
+                    }
+                  }
+                },
+                "composedMU": {
+                  "type": "required",
+                  "validators": {
+                    "notEmpty": {
+                      "message": {
+                        "EN": "Please make a selection"
+                      }
+                    }
+                  }
+                },
+                "measurementSystem": {
+                  "type": "required",
+                  "validators": {
+                    "notEmpty": {
+                      "message": {
+                        "EN": "Please enter the measurement system"
+                      }
+                    }
+                  }
+                },
+                "nameMU": {
+                  "type": "required",
+                  "validators": {
+                    "notEmpty": {
+                      "message": {
+                        "EN": "Please enter the measurement unit name"
+                      }
+                    }
+                  }
+                },
+                "conversionToStandard": {
+                  "validators": {
+                    "numeric": {
+                      "message": {
+                        "EN": "Please enter a numeric value only"
+                      }
+                    }
+                  }
+                },
+                "denominatorOfFlatteningRatio": {
+                  "type": "required",
+                  "validators": {
+                    "numeric": {
+                      "message": {
+                        "EN": "Please enter a numeric value only"
+                      }
+                    },
+                    "notEmpty": {
+                      "message": {
+                        "EN": "Please provide the denominator of the flattening rate"
+                      }
+                    }
+                  }
+                }
+
+              }
+            }
+          ]
+        },
+        {
+          "module": "seDatum",
+          "fields": {
+            "datum": {
+              "type": "required",
+              "validators": {
+                "notEmpty": {
+                  "message": {
+                    "EN": "Please select the datum"
+                  }
+                }
+              }
+            },
+            "datumName": {
+              "type": "required",
+              "validators": {
+                "notEmpty": {
+                  "message": {
+                    "EN": "Please enter the name of the datum used"
+                  }
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

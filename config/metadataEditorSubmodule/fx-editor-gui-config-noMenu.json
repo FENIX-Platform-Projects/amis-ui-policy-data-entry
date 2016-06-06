@@ -1,0 +1,735 @@
+{
+  "panels": [
+    {
+      "module": "policyDataEntryEditPolicy",
+      "type": {
+        "name": "label"
+      },
+      "label": {
+        "langProp": "policyDataEntryEditPolicy",
+        "hint": "Policy Data Editor"
+      },
+      "properties": {
+        "summary": {
+          "type": {
+            "name": "fieldset",
+            "subtitle": {
+              "langProp": "summarySubtitle"
+            }
+          },
+          "label": {
+            "langProp": "summaryInfo",
+            "hint": "Summary information"
+          },
+          "properties": {
+            "country": {
+              "type": {
+                "name": "fixedLabel",
+                "input-group": {
+                  "icon": "glyphicon glyphicon-phone-alt"
+                }
+              },
+              "label": {
+                "langProp": "country",
+                "hint": "Country"
+              }
+            },
+            "subnational": {
+              "type": {
+                "name": "fixedLabel",
+                "input-group": {
+                  "icon": "glyphicon glyphicon-phone-alt"
+                }
+              },
+              "label": {
+                "langProp": "subnationalLevel",
+                "hint": "Subnational Level"
+              },
+              "value": {
+                "default": "XXX"
+              }
+            },
+            "commodityDomain": {
+              "type": {
+                "name": "fixedLabel",
+                "input-group": {
+                  "icon": "glyphicon glyphicon-phone-alt"
+                }
+              },
+              "label": {
+                "langProp": "commodityDomain",
+                "hint": "Commodity Domain"
+              }
+            },
+            "commodityClass": {
+              "type": {
+                "name": "fixedLabel",
+                "input-group": {
+                  "icon": "glyphicon glyphicon-phone-alt"
+                }
+              },
+              "label": {
+                "langProp": "commodityClass",
+                "hint": "Commodity Class"
+              }
+            },
+            "commodityId": {
+              "type": {
+                "name": "fixedLabel",
+                "input-group": {
+                  "icon": "glyphicon glyphicon-phone-alt"
+                }
+              },
+              "label": {
+                "langProp": "commodityId",
+                "hint": "Commodity Id"
+              }
+            },
+            "hsCode": {
+              "type": {
+                "name": "fixedLabel",
+                "input-group": {
+                  "icon": "glyphicon glyphicon-phone-alt"
+                }
+              },
+              "label": {
+                "langProp": "hsCode",
+                "hint": "HS Code"
+              }
+            },
+            "hsVersion": {
+              "type": {
+                "name": "fixedLabel",
+                "input-group": {
+                  "icon": "glyphicon glyphicon-phone-alt"
+                }
+              },
+              "label": {
+                "langProp": "hsVersion",
+                "hint": "HS Version"
+              }
+            },
+            "suffix": {
+              "type": {
+                "name": "fixedLabel",
+                "input-group": {
+                  "icon": "glyphicon glyphicon-phone-alt"
+                }
+              },
+              "label": {
+                "langProp": "hsSuffix",
+                "hint": "HS Suffix"
+              }
+            },
+            "shortDescription": {
+              "type": {
+                "name": "fixedLabel",
+                "input-group": {
+                  "icon": "glyphicon glyphicon-phone-alt"
+                }
+              },
+              "label": {
+                "langProp": "shortDescription",
+                "hint": "Short Description"
+              }
+            },
+            "description": {
+              "type": {
+                "name": "fixedLabel",
+                "input-group": {
+                  "icon": "glyphicon glyphicon-phone-alt"
+                }
+              },
+              "label": {
+                "langProp": "longDescription",
+                "hint": "Description"
+              }
+            },
+            "policyDomain": {
+              "type": {
+                "name": "fixedLabel",
+                "input-group": {
+                  "icon": "glyphicon glyphicon-phone-alt"
+                }
+              },
+              "label": {
+                "langProp": "policyDomain",
+                "hint": "Policy Domain"
+              }
+            },
+            "policyType": {
+              "type": {
+                "name": "fixedLabel",
+                "input-group": {
+                  "icon": "glyphicon glyphicon-phone-alt"
+                }
+              },
+              "label": {
+                "langProp": "policyType",
+                "hint": "Policy Type"
+              }
+            },
+            "policyMeasure": {
+              "type": {
+                "name": "fixedLabel",
+                "input-group": {
+                  "icon": "glyphicon glyphicon-phone-alt"
+                }
+              },
+              "label": {
+                "langProp": "policyMeasure",
+                "hint": "Policy Measure"
+              }
+            },
+            "policyCondition": {
+              "type": {
+                "name": "fixedLabel",
+                "input-group": {
+                  "icon": "glyphicon glyphicon-phone-alt"
+                }
+              },
+              "label": {
+                "langProp": "policyCondition",
+                "hint": "Policy Condition"
+              }
+            },
+            "individualPolicy": {
+              "type": {
+                "name": "fixedLabel",
+                "input-group": {
+                  "icon": "glyphicon glyphicon-phone-alt"
+                }
+              },
+              "label": {
+                "langProp": "individualPolicy",
+                "hint": "Individual Policy"
+              }
+            }
+          }
+        },
+        "link": {
+          "type": {
+            "name": "text"
+          },
+          "value": {
+            "multilingual": true
+          },
+          "label": {
+            "langProp": "link",
+            "hint": "Link"
+          },
+          "info": {
+            "popover": {
+              "langProp": "link"
+            }
+          }
+        },
+        "linkPdf": {
+          "type": {
+            "name": "text"
+          },
+          "value": {
+            "multilingual": true
+          },
+          "label": {
+            "langProp": "linkPdf",
+            "hint": "Link Pdf"
+          },
+          "info": {
+            "popover": {
+              "langProp": "linkPdf"
+            }
+          }
+        },
+        "policyElement": {
+          "type": {
+            "name": "select"
+          },
+          "label": {
+            "langProp": "policyElement",
+            "hint": "Policy Element"
+          },
+          "source": {
+            "type": {
+              "name": "CodeList",
+              "object": "OJCodeList",
+              "system": "IANAcharacterSet",
+              "version": ""
+            },
+            "url": "http://statistics.amis-outlook.org:80/wdspolicy/rest/policyservice/policyElement/POLICY",
+            "dataroot": "data",
+            "datafields": {
+              "code": "code",
+              "label": "title",
+              "lang": "title[EN]"
+            }
+          },
+          "info": {
+            "popover": {
+              "langProp": "policyElement"
+            }
+          }
+        },
+        "startDate": {
+          "type": {
+            "name": "date"
+          },
+          "label": {
+            "langProp": "startDate",
+            "hint": "Start Date"
+          },
+          "info": {
+            "popover": {
+              "langProp": "startDate"
+            }
+          }
+        },
+        "endDate": {
+          "type": {
+            "name": "date"
+          },
+          "label": {
+            "langProp": "endDate",
+            "hint": "End Date"
+          },
+          "info": {
+            "popover": {
+              "langProp": "endDate"
+            }
+          }
+        },
+        "unit": {
+          "type": {
+            "name": "selectWithInput"
+          },
+          "label": {
+            "langProp": "unit",
+            "hint": "Unit"
+          },
+          "source": {
+            "type": {
+              "name": "CodeList",
+              "object": "OJCodeList",
+              "system": "IANAcharacterSet",
+              "version": ""
+            },
+            "url": "http://statistics.amis-outlook.org:80/wdspolicy/rest/policyservice/units/POLICY",
+            "dataroot": "data",
+            "datafields": {
+              "code": "code",
+              "label": "title",
+              "lang": "title[EN]"
+            }
+          },
+          "info": {
+            "popover": {
+              "langProp": "unit"
+            }
+          }
+        },
+        "value": {
+          "type": {
+            "name": "text"
+          },
+          "value": {
+            "multilingual": true
+          },
+          "label": {
+            "langProp": "value",
+            "hint": "Value"
+          },
+          "info": {
+            "popover": {
+              "langProp": "value"
+            }
+          }
+        },
+        "valueText": {
+          "type": {
+            "name": "text"
+          },
+          "value": {
+            "multilingual": true
+          },
+          "label": {
+            "langProp": "valueText",
+            "hint": "Value Text"
+          },
+          "info": {
+            "popover": {
+              "langProp": "valueText"
+            }
+          }
+        },
+        "source": {
+          "type": {
+            "name": "selectWithInput"
+          },
+          "label": {
+            "langProp": "source",
+            "hint": "Source"
+          },
+          "source": {
+            "type": {
+              "name": "CodeList",
+              "object": "OJCodeList",
+              "system": "IANAcharacterSet",
+              "version": ""
+            },
+            "url": "http://statistics.amis-outlook.org:80/wdspolicy/rest/policyservice/sourceWithoutWTO/POLICY",
+            "dataroot": "data",
+            "datafields": {
+              "code": "code",
+              "label": "title",
+              "lang": "title[EN]"
+            }
+          },
+          "info": {
+            "popover": {
+              "langProp": "source"
+            }
+          }
+        },
+        "exemptions": {
+          "type": {
+            "name": "text"
+          },
+          "value": {
+            "multilingual": true
+          },
+          "label": {
+            "langProp": "exemptions",
+            "hint": "Exemptions"
+          },
+          "info": {
+            "popover": {
+              "langProp": "exemptions"
+            }
+          }
+        },
+        "dateOfPublication": {
+          "type": {
+            "name": "date"
+          },
+          "label": {
+            "langProp": "dateOfPublication",
+            "hint": "Date Of Publication"
+          },
+          "info": {
+            "popover": {
+              "langProp": "dateOfPublication"
+            }
+          }
+        },
+        "taxRateBenchmark": {
+          "type": {
+            "name": "text"
+          },
+          "value": {
+            "multilingual": true
+          },
+          "label": {
+            "langProp": "taxRateBenchmark",
+            "hint": "Tax Rate Benchmark"
+          },
+          "info": {
+            "popover": {
+              "langProp": "taxRateBenchmark"
+            }
+          }
+        },
+        "benchmarkLink": {
+          "type": {
+            "name": "text"
+          },
+          "value": {
+            "multilingual": true
+          },
+          "label": {
+            "langProp": "benchmarkLink",
+            "hint": "Benchmark Link"
+          },
+          "info": {
+            "popover": {
+              "langProp": "benchmarkLink"
+            }
+          }
+        },
+        "benchmarkLinkPdf": {
+          "type": {
+            "name": "text"
+          },
+          "value": {
+            "multilingual": true
+          },
+          "label": {
+            "langProp": "benchmarkLinkPdf",
+            "hint": "Benchmark Link Pdf"
+          },
+          "info": {
+            "popover": {
+              "langProp": "benchmarkLinkPdf"
+            }
+          }
+        },
+        "secondGenerationSpecific": {
+          "type": {
+            "name": "select"
+          },
+          "value": {
+            "multilingual": true
+          },
+          "label": {
+            "langProp": "secondGenerationSpecific",
+            "hint": "Second Generation Specific"
+          },
+          "source": {
+            "type": {
+              "name": "CodeList",
+              "object": "OJCodeList",
+              "system": "IANAcharacterSet",
+              "version": ""
+            },
+            "url": "http://statistics.amis-outlook.org:80/wdspolicy/rest/policyservice/secondGenerationSpecific/POLICY",
+            "dataroot": "data",
+            "datafields": {
+              "code": "code",
+              "label": "title",
+              "lang": "title[EN]"
+            }
+          },
+          "info": {
+            "popover": {
+              "langProp": "secondGenerationSpecific"
+            }
+          }
+        },
+        "notes": {
+          "type": {
+            "name": "textarea"
+          },
+          "value": {
+            "multilingual": true
+          },
+          "label": {
+            "langProp": "policyNotes",
+            "hint": "Notes"
+          },
+          "info": {
+            "popover": {
+              "langProp": "policyNotes"
+            }
+          }
+        },
+        "MinAVTariffValue": {
+          "type": {
+            "name": "text"
+          },
+          "value": {
+            "multilingual": true
+          },
+          "label": {
+            "langProp": "MinAVTariffValue",
+            "hint": "Min AV Tariff Value"
+          },
+          "info": {
+            "popover": {
+              "langProp": "MinAVTariffValue"
+            }
+          }
+        },
+        "MaxAVTariffValue": {
+          "type": {
+            "name": "text"
+          },
+          "value": {
+            "multilingual": true
+          },
+          "label": {
+            "langProp": "MaxAVTariffValue",
+            "hint": "Max AV Tariff Value"
+          },
+          "info": {
+            "popover": {
+              "langProp": "MaxAVTariffValue"
+            }
+          }
+        },
+        "CountAVTariff": {
+          "type": {
+            "name": "text"
+          },
+          "value": {
+            "multilingual": true
+          },
+          "label": {
+            "langProp": "CountAVTariff",
+            "hint": "Count AV Tariff"
+          },
+          "info": {
+            "popover": {
+              "langProp": "CountAVTariff"
+            }
+          }
+        },
+        "CountNAVTariff": {
+          "type": {
+            "name": "text"
+          },
+          "value": {
+            "multilingual": true
+          },
+          "label": {
+            "langProp": "CountNAVTariff",
+            "hint": "Count NAV Tariff Value"
+          },
+          "info": {
+            "popover": {
+              "langProp": "CountNAVTariff"
+            }
+          }
+        },
+        "titleOfNotice": {
+          "type": {
+            "name": "text"
+          },
+          "value": {
+            "multilingual": true
+          },
+          "label": {
+            "langProp": "titleOfNotice",
+            "hint": "Title Of Notice"
+          },
+          "info": {
+            "popover": {
+              "langProp": "titleOfNotice"
+            }
+          }
+        },
+        "legalBasisName": {
+          "type": {
+            "name": "text"
+          },
+          "value": {
+            "multilingual": true
+          },
+          "label": {
+            "langProp": "legalBasisName",
+            "hint": "Legal Basis Name"
+          },
+          "info": {
+            "popover": {
+              "langProp": "legalBasisName"
+            }
+          }
+        },
+        "benchmarkTax": {
+          "type": {
+            "name": "text"
+          },
+          "value": {
+            "multilingual": true
+          },
+          "label": {
+            "langProp": "benchmarkTax",
+            "hint": "Benchmark Tax"
+          },
+          "info": {
+            "popover": {
+              "langProp": "benchmarkTax"
+            }
+          }
+        },
+        "benchmarkProduct": {
+          "type": {
+            "name": "text"
+          },
+          "value": {
+            "multilingual": true
+          },
+          "label": {
+            "langProp": "benchmarkProduct",
+            "hint": "Benchmark Product"
+          },
+          "info": {
+            "popover": {
+              "langProp": "benchmarkProduct"
+            }
+          }
+        },
+        "taxRateBiofuel": {
+          "type": {
+            "name": "text"
+          },
+          "value": {
+            "multilingual": true
+          },
+          "label": {
+            "langProp": "taxRateBiofuel",
+            "hint": "Tax Rate Biofuel"
+          },
+          "info": {
+            "popover": {
+              "langProp": "taxRateBiofuel"
+            }
+          }
+        },
+        "startDateTax": {
+          "type": {
+            "name": "date"
+          },
+          "label": {
+            "langProp": "startDateTax",
+            "hint": "Start Date Tax"
+          },
+          "info": {
+            "popover": {
+              "langProp": "startDateTax"
+            }
+          }
+        },
+        "measureDescription": {
+          "type": {
+            "name": "textarea"
+          },
+          "value": {
+            "multilingual": true
+          },
+          "label": {
+            "langProp": "measureDescription",
+            "hint": "Measure Description"
+          },
+          "info": {
+            "popover": {
+              "langProp": "measureDescription"
+            }
+          }
+        },
+        "productOriginalHs": {
+          "type": {
+            "name": "text"
+          },
+          "value": {
+            "multilingual": true
+          },
+          "label": {
+            "langProp": "productOriginalHs",
+            "hint": "Product Original Hs"
+          }
+        },
+        "productOriginalName": {
+          "type": {
+            "name": "text"
+          },
+          "value": {
+            "multilingual": true
+          },
+          "label": {
+            "langProp": "productOriginalName",
+            "hint": "Product Original Name"
+          }
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "get": {
+    "urlTest" : "http://lprapp16.fao.org:7799/v2/msd/resources/metadata/uid/version?full=true",
+    "url" : "http://faostat3.fao.org/d3s2/v2/msd/resources/metadata/uid/version?full=true",
+    "type" : "get",
+    "response": {
+      "addedEntitites":["dsd"],
+      "keyFields": [{"meIdentification" : ["uid", "rid", "version"]}]
+    }
+  },
+  "create": {
+    "urlTest" : "http://lprapp16.fao.org:7799/v2/msd/resources/metadata",
+    "url" : "http://faostat3.fao.org/d3s2/v2/msd/resources/metadata",
+    "type": "post",
+    "content": "json",
+    "response": {
+      "keyFields": [{"meIdentification" : ["uid", "rid", "version"]}]
+    }
+  },
+  "overwrite": {
+    "urlTest" : "http://lprapp16.fao.org:7799/v2/msd/resources/metadata",
+    "url" : "http://faostat3.fao.org/d3s2/v2/msd/resources/metadata",
+    "type" : "put",
+    "content": "json",
+    "response": {
+      "keyFields": [{"meIdentification" : ["uid", "rid", "version"]}]
+    }
+  }
+}
